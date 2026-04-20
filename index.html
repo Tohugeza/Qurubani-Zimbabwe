@@ -92,7 +92,7 @@ nav.scrolled{box-shadow:0 4px 24px rgba(2,13,25,.08);border-color:transparent}
 .hero-check{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:#5a7a9a;font-weight:400}
 .check-icon{width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .check-icon svg{width:10px;height:10px;fill:#fff}
-.hero-actions{display:flex;gap:1rem;align-items:center;animation:heroFadeIn .8s ease .7s both;margin-bottom:3.5rem}
+.hero-actions{display:flex;gap:1rem;align-items:center;animation:heroFadeIn .8s ease .7s both;margin-bottom:1.5rem;flex-wrap:wrap}
 .btn-hero{background:var(--orange);color:#fff;border:none;padding:.95rem 2.2rem;font-size:.88rem;font-weight:700;border-radius:8px;cursor:pointer;font-family:'Onest',sans-serif;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s;box-shadow:0 6px 20px rgba(255,109,0,.35);position:relative;overflow:hidden}
 .btn-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .2s}
 .btn-hero:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(255,109,0,.45)}
@@ -445,9 +445,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
 <section class="hero" style="position:relative">
   <div class="hero-bg-desktop" style="position:absolute;inset:0;background-image:url('Background images/bg-desktop.jpg');background-size:cover;background-position:center 30%;z-index:0"></div>
   <div class="hero-bg-mobile" style="position:absolute;inset:0;background-image:url('Background images/bg-mobile.jpg');background-size:cover;background-position:center 30%;z-index:0;display:none"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,13,25,.95) 0%,rgba(2,13,25,.85) 45%,rgba(2,13,25,.75) 70%,rgba(2,13,25,.92) 100%);z-index:0"></div>
-  <div class="hero-bg-pattern" style="z-index:1"></div>
-  <div class="hero-grid-overlay" style="z-index:1"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,13,25,.75) 0%,rgba(2,13,25,.65) 45%,rgba(2,13,25,.55) 70%,rgba(2,13,25,.72) 100%);z-index:1;pointer-events:none"></div>
   <div class="hero-inner" style="position:relative;z-index:2">
     <div>
       <div class="hero-eyebrow">
