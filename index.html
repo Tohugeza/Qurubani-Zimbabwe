@@ -369,7 +369,6 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
   .tl-dot{width:34px;height:34px}
   #donate>div:last-child{grid-template-columns:1fr!important;gap:2.5rem!important}
   #donate{padding:4rem 1.5rem!important}
-}
 @media(max-width:600px){
   .gallery-grid{grid-template-columns:1fr}
   .stats-row{grid-template-columns:1fr!important}
@@ -445,7 +444,8 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
 <section class="hero" style="position:relative">
   <div class="hero-bg-desktop" style="position:absolute;inset:0;background-image:url('Background images/bg-desktop.jpg');background-size:cover;background-position:center 30%;z-index:0"></div>
   <div class="hero-bg-mobile" style="position:absolute;inset:0;background-image:url('Background images/bg-mobile.jpg');background-size:cover;background-position:center 30%;z-index:0;display:none"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,13,25,.75) 0%,rgba(2,13,25,.65) 45%,rgba(2,13,25,.55) 70%,rgba(2,13,25,.72) 100%);z-index:1;pointer-events:none"></div>
+  <!-- OVERLAY: fully transparent so background image shows at 100% -->
+  <div style="position:absolute;inset:0;background:rgba(2,13,25,0);z-index:1;pointer-events:none"></div>
   <div class="hero-inner" style="position:relative;z-index:2">
     <div>
       <div class="hero-eyebrow">
@@ -491,7 +491,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
         <span class="hdw-total-label">Your Qurbani total</span>
         <span class="hdw-total-amount" id="hdwTotal">£85</span>
       </div>
-      <!-- CTA — scrolls to donate section -->
+      <!-- CTA -->
       <button class="hdw-btn" onclick="hdwGoToDonate()">
         <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         Secure your Qurbani
@@ -535,7 +535,6 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
     <div class="reveal"><div class="section-eyebrow">Alhamdulillah · Qurbani 2025</div></div>
     <h2 class="reveal stagger-1">Gilston Farm 2025</h2>
     <p class="section-sub reveal stagger-2">In 2025 we organised the first ever Qurbani for the Black Muslim community at Gilston Farm, Zimbabwe. 29 goats were sacrificed, feeding 89 families with 267kgs of fresh meat.</p>
-    <!-- Gallery folder card -->
     <div class="gallery-grid" style="grid-template-columns:repeat(3,1fr);max-width:100%">
       <div class="gc reveal stagger-1" onclick="openGallery()" style="cursor:pointer;grid-column:1/-1;max-width:480px">
         <div class="gc-photo" style="height:280px;position:relative;overflow:hidden">
@@ -589,11 +588,11 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
 
 <!-- DONATE -->
 <section id="donate" style="position:relative;min-height:100vh;display:flex;align-items:center;padding:5rem 2.5rem;overflow:hidden">
-  <!-- Background image — desktop/mobile responsive -->
+  <!-- Background image -->
   <div class="hero-bg-desktop" style="position:absolute;inset:0;background-image:url('Background images/bg-desktop.jpg');background-size:cover;background-position:center 30%;z-index:0"></div>
   <div class="hero-bg-mobile" style="position:absolute;inset:0;background-image:url('Background images/bg-mobile.jpg');background-size:cover;background-position:center 30%;z-index:0;display:none"></div>
-  <!-- Dark overlay -->
-  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,13,25,.92) 0%,rgba(2,13,25,.78) 45%,rgba(2,13,25,.68) 70%,rgba(2,13,25,.88) 100%);z-index:1"></div>
+  <!-- OVERLAY: fully transparent so background image shows at 100% -->
+  <div style="position:absolute;inset:0;background:rgba(2,13,25,0);z-index:1"></div>
 
   <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
 
@@ -919,7 +918,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
 </button>
 
 <script>
-// HERO WIDGET — simplified quantity selector, scrolls to donate section
+// HERO WIDGET
 let hdwQty = 1;
 function hdwChangeQty(d){
   hdwQty = Math.max(1, Math.min(100, hdwQty + d));
@@ -1028,7 +1027,6 @@ function validateDonate(e){
   if(errEl) errEl.style.display='none';
   return true;
 }
-function handleDonate(){ validateDonate(null); }
 donateUpdateUI();
 
 // PRELOADER
@@ -1095,7 +1093,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-// INTERSECTION OBSERVER — reveal animations
+// INTERSECTION OBSERVER
 const revealObs=new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
@@ -1138,7 +1136,6 @@ const countObs=new IntersectionObserver((entries)=>{
 },{threshold:.3});
 document.querySelectorAll('.stats-row,.about-float,.hero-float').forEach(el=>countObs.observe(el));
 
-// HERO FLOAT COUNTERS — run on load after preloader
 setTimeout(()=>{
   document.querySelectorAll('.hf-num[data-count]').forEach(el=>{
     el.dataset.target=el.dataset.count;
@@ -1146,11 +1143,8 @@ setTimeout(()=>{
   });
 },2000);
 
-// DONATION LOGIC
-
 // GALLERY LIGHTBOX
 const galleryPhotos = [
-  // Specified order first
   'images/img_3124.webp',
   'images/img_e3165.webp',
   'images/img_3102.webp',
@@ -1159,7 +1153,6 @@ const galleryPhotos = [
   'images/img_3112.webp',
   'images/img_3107.webp',
   'images/img_3087.webp',
-  // Rest alphabetically
   'images/2-img_3079.webp',
   'images/3-img_3080.webp',
   'images/4-img_3104.webp',
@@ -1198,12 +1191,10 @@ function showPhoto(n){
   currentPhoto = Math.max(0, Math.min(galleryPhotos.length - 1, n));
   document.getElementById('lightboxImg').src = galleryPhotos[currentPhoto];
   document.getElementById('lightboxCounter').textContent = (currentPhoto + 1) + ' / ' + galleryPhotos.length;
-  // Update thumb highlights
   document.querySelectorAll('.lb-thumb').forEach((t, i) => {
     t.style.opacity = i === currentPhoto ? '1' : '0.4';
     t.style.borderColor = i === currentPhoto ? '#FF6D00' : 'transparent';
   });
-  // Scroll active thumb into view
   const active = document.querySelectorAll('.lb-thumb')[currentPhoto];
   if(active) active.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
 }
@@ -1221,7 +1212,6 @@ function buildThumbs(){
     row.appendChild(img);
   });
 }
-// Keyboard navigation
 document.addEventListener('keydown', e => {
   if(document.getElementById('galleryLightbox').style.display === 'flex'){
     if(e.key === 'ArrowRight') nextPhoto();
@@ -1229,8 +1219,6 @@ document.addEventListener('keydown', e => {
     if(e.key === 'Escape') closeGallery();
   }
 });
-
-// SHEEN on hover for img placeholders — already handled by CSS :hover
 </script>
 </body>
 </html>
