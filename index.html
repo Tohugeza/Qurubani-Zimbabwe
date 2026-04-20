@@ -344,7 +344,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
 @media(max-width:960px){
   .hero-inner{grid-template-columns:1fr;gap:2.5rem}
   .hero-donate-widget{margin-bottom:2.5rem}
-  .stats-row{grid-template-columns:1fr 1fr}
+  .stats-row{grid-template-columns:1fr 1fr!important}
   .gallery-grid{grid-template-columns:1fr 1fr}
   .how-grid{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}
@@ -361,10 +361,11 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
   .timeline::before{left:16px}
   .tl-dot{width:34px;height:34px}
   #donate>div:last-child{grid-template-columns:1fr!important;gap:2.5rem!important}
+  #donate{padding:4rem 1.5rem!important}
 }
 @media(max-width:600px){
   .gallery-grid{grid-template-columns:1fr}
-  .stats-row{grid-template-columns:1fr 1fr}
+  .stats-row{grid-template-columns:1fr!important}
   .footer-inner{grid-template-columns:1fr}
   .hero-actions{flex-direction:column;align-items:stretch}
   .btn-hero,.btn-ghost-hero{text-align:center;justify-content:center}
@@ -376,6 +377,12 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
   .challenges-grid{grid-template-columns:1fr}
   .tl-item{gap:1rem}
   #donate{padding:4rem 1.25rem!important}
+  #donate>div:last-child{grid-template-columns:1fr!important;gap:2rem!important}
+  .hero{padding:5rem 1.25rem 2rem}
+  .section{padding:3.5rem 1.25rem}
+  nav{padding:0 1.25rem}
+  .nav-brand{font-size:.9rem}
+  .donor-name-grid{grid-template-columns:1fr!important}
 }
 </style>
 </head>
@@ -450,6 +457,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
           Give your Qurbani
         </button>
         <a class="btn-ghost-hero" href="#gallery">See past Qurbanis →</a>
+        <a class="btn-ghost-hero" href="#history">History of Muslims in Zimbabwe →</a>
       </div>
     </div>
     <div class="hero-donate-widget">
@@ -521,12 +529,21 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
     <div class="reveal"><div class="section-eyebrow">Alhamdulillah · Qurbani 2025</div></div>
     <h2 class="reveal stagger-1">Gilston Farm 2025</h2>
     <p class="section-sub reveal stagger-2">In 2025 we organised the first ever Qurbani for the Black Muslim community at Gilston Farm, Zimbabwe. 29 goats were sacrificed, feeding 89 families with 267kgs of fresh meat.</p>
-    <div class="gallery-grid" style="grid-template-columns:1fr;max-width:480px">
-      <div class="gc reveal stagger-1">
-        <div class="gc-photo" style="height:280px;background:linear-gradient(145deg,#0d1f35,#1a3d6e)">
+    <!-- Gallery folder card -->
+    <div class="gallery-grid" style="grid-template-columns:repeat(3,1fr);max-width:100%">
+      <div class="gc reveal stagger-1" onclick="openGallery()" style="cursor:pointer;grid-column:1/-1;max-width:480px">
+        <div class="gc-photo" style="height:280px;position:relative;overflow:hidden">
           <div class="gc-year">2025</div>
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span style="font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2)">Photos coming soon</span>
+          <img src="images/img_3045.webp" alt="Gilston Farm 2025" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy" />
+          <div style="position:absolute;inset:0;background:rgba(2,13,25,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem">
+            <div style="width:56px;height:56px;background:rgba(255,109,0,.9);border-radius:12px;display:flex;align-items:center;justify-content:center">
+              <svg viewBox="0 0 24 24" style="width:26px;height:26px;fill:#fff"><path d="M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:.95rem;font-weight:700;color:#fff">Gilston Farm 2025</div>
+              <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-top:.25rem">17 photos · Click to view</div>
+            </div>
+          </div>
         </div>
         <div class="gc-body">
           <strong>Gilston Farm — Eid ul-Adha 2025</strong>
@@ -534,6 +551,28 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
           <div class="gc-tag">29 goats · 89 families · 267kgs distributed</div>
         </div>
       </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="galleryLightbox" style="display:none;position:fixed;inset:0;background:rgba(2,13,25,.97);z-index:9000;flex-direction:column" onclick="closeLightboxOutside(event)">
+      <!-- Header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 2rem;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0">
+        <div>
+          <div style="font-size:1rem;font-weight:700;color:#fff">Gilston Farm — Eid ul-Adha 2025</div>
+          <div style="font-size:.72rem;color:#5a7a9a;margin-top:.2rem">29 goats · 89 families · 267kgs distributed</div>
+        </div>
+        <button onclick="closeGallery()" style="width:40px;height:40px;background:rgba(255,255,255,.08);border:none;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem;font-family:inherit;transition:background .2s" onmouseover="this.style.background='rgba(255,109,0,.3)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">&times;</button>
+      </div>
+      <!-- Main image -->
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;position:relative;padding:1.5rem;min-height:0">
+        <button onclick="prevPhoto()" style="position:absolute;left:1rem;width:44px;height:44px;background:rgba(255,255,255,.08);border:none;border-radius:50%;cursor:pointer;color:#fff;font-size:1.4rem;display:flex;align-items:center;justify-content:center;z-index:1;transition:background .2s" onmouseover="this.style.background='rgba(255,109,0,.5)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">&#8249;</button>
+        <img id="lightboxImg" src="" alt="" style="max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;display:block" />
+        <button onclick="nextPhoto()" style="position:absolute;right:1rem;width:44px;height:44px;background:rgba(255,255,255,.08);border:none;border-radius:50%;cursor:pointer;color:#fff;font-size:1.4rem;display:flex;align-items:center;justify-content:center;z-index:1;transition:background .2s" onmouseover="this.style.background='rgba(255,109,0,.5)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">&#8250;</button>
+      </div>
+      <!-- Counter -->
+      <div style="text-align:center;padding:.75rem;font-size:.75rem;color:#5a7a9a;flex-shrink:0" id="lightboxCounter">1 / 17</div>
+      <!-- Thumbnails -->
+      <div style="display:flex;gap:6px;padding:1rem 2rem;overflow-x:auto;flex-shrink:0;border-top:1px solid rgba(255,255,255,.07)" id="thumbsRow"></div>
     </div>
   </div>
 </section>
@@ -563,13 +602,13 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
       </div>
       <h1 style="font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;line-height:1.05;color:#fff;margin-bottom:1rem">Your sacrifice.<br><span style="color:#e8c96a">Their Eid.</span></h1>
       <p style="font-size:.9rem;font-style:italic;color:rgba(201,168,76,.75);line-height:1.7;border-left:2px solid #C9A84C;padding-left:1rem;margin-bottom:1.5rem">"It is neither the meat nor their blood that reaches Allah, but it is the piety from you that reaches Him." — Qur'an 22:37</p>
-      <p style="font-size:.88rem;line-height:1.85;color:rgba(255,255,255,.6);font-weight:300;margin-bottom:2rem;max-width:440px">In 2025, from 29 goats we fed 89 families — the first ever Qurbani for the Gilston Farm community. Now for Eid 2026, your donation goes directly to the community — fresh meat, trusted partners, every penny accounted for.</p>
+      <p style="font-size:.88rem;line-height:1.85;color:rgba(255,255,255,.6);font-weight:300;margin-bottom:2rem;max-width:440px">In 2025, from 29 goats we fed 89 families — the first ever Qurbani for the Gilston Farm community. For Eid 2026, your donation goes directly to the community — fresh meat, trusted partners, every penny accounted for.</p>
       <div style="display:flex;gap:1.5rem;margin-bottom:2rem">
         <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:#e8c96a;line-height:1">£85</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.25rem">Per goat</span></div>
         <div style="width:1px;background:rgba(255,255,255,.08)"></div>
-        <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:#e8c96a;line-height:1">89</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.25rem">Families fed</span></div>
+        <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:#e8c96a;line-height:1">29</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.25rem">Goats 2025</span></div>
         <div style="width:1px;background:rgba(255,255,255,.08)"></div>
-        <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:#e8c96a;line-height:1">100%</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.25rem">Goes direct</span></div>
+        <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:#e8c96a;line-height:1">89</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.25rem">Families fed</span></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:.6rem">
         <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,.65)"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Sourced from local Zimbabwean farmers</div>
@@ -625,7 +664,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
       <!-- Donor details -->
       <div style="margin-bottom:1.1rem">
         <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.75rem">Your details</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-bottom:.55rem">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-bottom:.55rem" class="donor-name-grid">
           <div>
             <label style="font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);display:block;margin-bottom:.3rem">First name *</label>
             <input id="donorFirst" type="text" placeholder="Ahmed" autocomplete="given-name" style="width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);color:#fff;padding:.65rem .85rem;font-size:.82rem;font-family:'Onest',sans-serif;border-radius:8px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#FF6D00'" onblur="this.style.borderColor='rgba(255,255,255,.08)'" oninput="this.style.borderColor='#FF6D00'" />
@@ -711,16 +750,16 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
         </div>
       </div>
       <div class="about-text reveal-right">
-        <div class="section-eyebrow">About Gilston Farm</div>
-        <h2>The Black Muslims of Zimbabwe — Gilston Farm Community</h2>
-        <p>Gilston Farm is home to one of Zimbabwe's most marginalised yet resilient communities — Black Muslims whose ancestors arrived as migrant labourers during the British colonial era, recruited from Malawi and Mozambique to work on farms, railways, and mines.</p>
-        <p>Despite living in Zimbabwe for generations, many community members remain undocumented — a legacy of colonial-era "alien native" classifications. This denies them citizenship, voting rights, and access to public services. They live in basic mud-brick housing with no running water, no electricity, and limited access to healthcare or education.</p>
-        <p>For Eid ul-Adha 2026, a team from North West UK organised the community's Qurbani — <strong>the first time in their lifetime that many residents had ever received Qurbani meat.</strong></p>
+        <div class="section-eyebrow">About Qurbani Zimbabwe</div>
+        <h2>A Small Team. A Forgotten Community. A Big Responsibility.</h2>
+        <p>Qurbani Zimbabwe is a small, volunteer-led initiative run by a team of people based in the UK and Zimbabwe. We came together in 2025 with one goal — to organise Qurbani for a Muslim community in rural Zimbabwe that had never received it before.</p>
+        <p>That community is Gilston Farm — home to Black Muslims whose ancestors were brought to Southern Rhodesia as migrant labourers during British colonial rule, recruited from Malawi and Mozambique. Despite living in Zimbabwe for generations, many remain undocumented. They live in mud-brick homes with no electricity, no running water, and no government support. Gilston Masjid — built entirely from personal funds — is the heart of their community.</p>
+        <p>In 2025 we sourced 29 goats from a local farmer in Beatrice, Zimbabwe. The sacrifice was performed by the Sheikh from Gilston Masjid. Fresh meat was distributed to 89 families — <strong>for many it was the first time in their lifetime they had ever received Qurbani.</strong></p>
         <div class="check-list">
-          <div class="cli"><div class="cli-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>29 goats sacrificed · 89 families fed · Eid 2025 (first ever Qurbani)</div>
-          <div class="cli"><div class="cli-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Community mosque built with personal funds — no electricity or sanitation</div>
-          <div class="cli"><div class="cli-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>No government support — excluded from land reform and public programmes</div>
-          <div class="cli"><div class="cli-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Faith remains the pillar of resilience in this forgotten community</div>
+          <div class="cli"><div class="cli-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Started 2025 · Small UK &amp; Zimbabwe volunteer team</div>
+          <div class="cli"><div class="cli-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>29 goats sacrificed · 89 families fed · 267kgs distributed · Eid 2025</div>
+          <div class="cli"><div class="cli-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>100% of donations go directly to the community — no overhead</div>
+          <div class="cli"><div class="cli-dot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Photos sent to every donor after distribution</div>
         </div>
         <button class="btn-primary" onclick="smoothScrollTo('#donate')">
           Support this community
@@ -824,15 +863,6 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
   <div class="c-inner">
     <span class="c-label">Regions we serve</span>
     <div class="c-tags">
-      <span class="ctag">Harare</span>
-      <span class="ctag">Bulawayo</span>
-      <span class="ctag">Gweru</span>
-      <span class="ctag">Masvingo</span>
-      <span class="ctag">Mutare</span>
-      <span class="ctag">Chitungwiza</span>
-      <span class="ctag">Kwekwe</span>
-      <span class="ctag">Bindura</span>
-      <span class="ctag">Kadoma</span>
       <span class="ctag">Rural areas</span>
     </div>
   </div>
@@ -846,7 +876,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
         <div class="f-brand-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
         <div class="f-brand-text">Qurbani Zimbabwe<small>Est. 2025 · Gilston Farm, Zimbabwe</small></div>
       </div>
-      <p class="f-desc">Ensuring no family in Zimbabwe misses the blessing of Qurbani. Trusted for 12 years, 100% direct distribution to those in need.</p>
+      <p class="f-desc">A small volunteer-led team based in the UK and Zimbabwe, organising Qurbani for the forgotten Muslim community at Gilston Farm. Started 2025 — 29 goats, 89 families, 267kgs distributed.</p>
       <div class="f-social">
         <div class="f-soc"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
         <div class="f-soc"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
@@ -1114,6 +1144,68 @@ setTimeout(()=>{
 },2000);
 
 // DONATION LOGIC
+
+// GALLERY LIGHTBOX
+const galleryPhotos = [
+  'images/img_2923.webp','images/img_2954.webp','images/img_3017.webp',
+  'images/img_3033.webp','images/img_3045.webp','images/img_3057.webp',
+  'images/img_3102.webp','images/img_3107.webp','images/img_3112.webp',
+  'images/img_3124.webp','images/img_3130.webp','images/img_e2987.webp',
+  'images/img_e3019.webp','images/img_e3071.webp','images/img_e3075.webp',
+  'images/img_e3083.webp','images/img_e3165.webp'
+];
+let currentPhoto = 0;
+
+function openGallery(){
+  currentPhoto = 0;
+  const lb = document.getElementById('galleryLightbox');
+  lb.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  buildThumbs();
+  showPhoto(0);
+}
+function closeGallery(){
+  document.getElementById('galleryLightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+function closeLightboxOutside(e){
+  if(e.target === document.getElementById('galleryLightbox')) closeGallery();
+}
+function showPhoto(n){
+  currentPhoto = Math.max(0, Math.min(galleryPhotos.length - 1, n));
+  document.getElementById('lightboxImg').src = galleryPhotos[currentPhoto];
+  document.getElementById('lightboxCounter').textContent = (currentPhoto + 1) + ' / ' + galleryPhotos.length;
+  // Update thumb highlights
+  document.querySelectorAll('.lb-thumb').forEach((t, i) => {
+    t.style.opacity = i === currentPhoto ? '1' : '0.4';
+    t.style.borderColor = i === currentPhoto ? '#FF6D00' : 'transparent';
+  });
+  // Scroll active thumb into view
+  const active = document.querySelectorAll('.lb-thumb')[currentPhoto];
+  if(active) active.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+}
+function prevPhoto(){ showPhoto(currentPhoto - 1); }
+function nextPhoto(){ showPhoto(currentPhoto + 1); }
+function buildThumbs(){
+  const row = document.getElementById('thumbsRow');
+  row.innerHTML = '';
+  galleryPhotos.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'lb-thumb';
+    img.style.cssText = 'width:72px;height:52px;object-fit:cover;border-radius:5px;cursor:pointer;flex-shrink:0;border:2px solid transparent;transition:all .2s;opacity:0.4';
+    img.onclick = () => showPhoto(i);
+    row.appendChild(img);
+  });
+}
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if(document.getElementById('galleryLightbox').style.display === 'flex'){
+    if(e.key === 'ArrowRight') nextPhoto();
+    if(e.key === 'ArrowLeft') prevPhoto();
+    if(e.key === 'Escape') closeGallery();
+  }
+});
 
 // SHEEN on hover for img placeholders — already handled by CSS :hover
 </script>
