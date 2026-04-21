@@ -16,6 +16,10 @@
   --gold:#C9A84C;
 }
 @keyframes fadeNameIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heroSlideRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes heroFadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heroWordIn{from{opacity:0;transform:translateY(30px) skewY(4deg)}to{opacity:1;transform:translateY(0) skewY(0)}}
+.hero-word{display:inline-block;opacity:0;animation:heroWordIn .55s cubic-bezier(.22,1,.36,1) both}
 
 body{font-family:'Onest',sans-serif;background:var(--white);color:var(--dark);overflow-x:hidden}
 
@@ -82,7 +86,8 @@ nav.scrolled{box-shadow:0 4px 24px rgba(2,13,25,.08);border-color:transparent}
 .hero{background:var(--dark);padding:7rem 2.5rem 4rem;position:relative;overflow:hidden;margin-top:72px}
 .hero-bg-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(255,109,0,.08) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(255,109,0,.05) 0%,transparent 40%);pointer-events:none}
 .hero-grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
-.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:2.5rem;position:relative;z-index:1}
+.hero-inner>*{flex:unset;min-width:0;width:100%}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);background:rgba(255,109,0,.1);border:1px solid rgba(255,109,0,.2);padding:.4rem .95rem;border-radius:100px;margin-bottom:1.75rem;animation:heroFadeIn .8s ease .2s both}
 @keyframes heroFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;line-height:1.05;color:#fff;margin-bottom:1.25rem;animation:heroFadeIn .8s ease .35s both}
@@ -349,8 +354,8 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
   .hero-bg-desktop{display:block!important}
   .hero-bg-mobile{display:none!important}
 }
-  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
-  .hero-donate-widget{margin-bottom:2.5rem}
+  .hero-inner{gap:2rem}
+  .hero-donate-widget{margin-bottom:0}
   .stats-row{grid-template-columns:1fr 1fr!important}
   .gallery-grid{grid-template-columns:1fr 1fr}
   .how-grid{grid-template-columns:1fr}
@@ -447,17 +452,29 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
   <!-- OVERLAY: subtle dark tint to lift text off warm background -->
   <div style="position:absolute;inset:0;background:rgba(2,13,25,0.38);z-index:1;pointer-events:none"></div>
   <div class="hero-inner" style="position:relative;z-index:2">
-    <div>
-      <div class="hero-eyebrow">
-        <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:var(--orange)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+
+    <!-- TEXT BLOCK -->
+    <div style="display:flex;flex-direction:column;justify-content:center">
+      <!-- Eyebrow — white, slides in from right -->
+      <div class="hero-eyebrow" style="color:#fff;background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.25);animation:heroSlideRight .7s ease .2s both">
+        <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#fff"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         Eid ul-Adha 2026 · Zimbabwe
       </div>
-      <h1 style="text-shadow:0 2px 12px rgba(0,0,0,0.5),0 1px 3px rgba(0,0,0,0.4)">Feed Families.<br><span>Give Qurbani</span><br>This Eid.</h1>
-      <p class="hero-desc" style="color:rgba(255,255,255,0.88);text-shadow:0 1px 6px rgba(0,0,0,0.4)">Your sacrifice reaches the most vulnerable families across Zimbabwe — fresh meat, trusted partners, 1 year of proven impact.</p>
-      <div class="hero-checklist">
-        <div class="hero-check" style="color:rgba(255,255,255,0.8)"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Stripe secured</div>
+      <!-- H1 — words animate in one by one -->
+      <h1 style="text-shadow:0 2px 16px rgba(0,0,0,0.6),0 1px 4px rgba(0,0,0,0.5)">
+        <span class="hero-word" style="animation-delay:.35s">Feed</span>
+        <span class="hero-word" style="animation-delay:.48s">Families.</span><br>
+        <span class="hero-word" style="animation-delay:.62s;color:var(--orange)">Give</span>
+        <span class="hero-word" style="animation-delay:.76s;color:var(--orange)">Qurbani</span><br>
+        <span class="hero-word" style="animation-delay:.9s">This</span>
+        <span class="hero-word" style="animation-delay:1.04s">Eid.</span>
+      </h1>
+      <!-- Description fades up -->
+      <p class="hero-desc" style="color:rgba(255,255,255,0.92);text-shadow:0 1px 8px rgba(0,0,0,0.5);animation:heroFadeUp .8s ease 1.15s both">Your sacrifice reaches the most vulnerable families across Zimbabwe — fresh meat, trusted partners, 1 year of proven impact.</p>
+      <div class="hero-checklist" style="animation:heroFadeUp .8s ease 1.3s both">
+        <div class="hero-check" style="color:rgba(255,255,255,0.85)"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Stripe secured</div>
       </div>
-      <div class="hero-actions">
+      <div class="hero-actions" style="animation:heroFadeUp .8s ease 1.45s both">
         <button class="btn-hero" onclick="smoothScrollTo('#donate')">
           <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           Give your Qurbani
@@ -466,41 +483,58 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
         <a class="btn-ghost-hero" href="#history" style="color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.45)">History of Muslims in Zimbabwe →</a>
       </div>
     </div>
-    <div class="hero-donate-widget">
-      <div class="hdw-label">
-        <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:var(--orange)"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-        Secure your Qurbani — £85 per goat
+
+    <!-- WIDGET: single horizontal row — Price | Qty | Total | Donate -->
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.5rem 1.75rem;backdrop-filter:blur(20px);animation:heroFadeUp .8s ease .3s both">
+
+      <!-- Row label -->
+      <div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem">
+        <svg viewBox="0 0 24 24" style="width:10px;height:10px;fill:var(--orange)"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        Secure your Qurbani · Eid ul-Adha 2026
       </div>
-      <!-- Price display -->
-      <div style="display:flex;flex-direction:column;align-items:center;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.25rem;text-align:center">
-        <div style="font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,168,76,.6);margin-bottom:.25rem">Price per goat</div>
-        <div style="font-size:1.8rem;font-weight:900;color:#e8c96a">£85</div>
-      </div>
-      <!-- Qty selector -->
-      <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.6rem">How many goats?</div>
-      <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.04);margin-bottom:.5rem">
-        <button onclick="hdwChangeQty(-1)" style="width:52px;height:52px;background:none;border:none;color:rgba(255,255,255,.6);font-size:1.4rem;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .18s" onmouseover="this.style.background='rgba(255,109,0,.12)';this.style.color='#FF6D00'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,.6)'">−</button>
-        <div style="width:1px;background:rgba(255,255,255,.08);height:52px;flex-shrink:0"></div>
-        <div id="hdwQtyDisplay" style="flex:1;text-align:center;font-size:1.6rem;font-weight:900;color:#fff;line-height:52px;user-select:none">1</div>
-        <div style="width:1px;background:rgba(255,255,255,.08);height:52px;flex-shrink:0"></div>
-        <button onclick="hdwChangeQty(1)" style="width:52px;height:52px;background:none;border:none;color:rgba(255,255,255,.6);font-size:1.4rem;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .18s" onmouseover="this.style.background='rgba(255,109,0,.12)';this.style.color='#FF6D00'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,.6)'">+</button>
-      </div>
-      <div style="font-size:.72rem;color:rgba(255,255,255,.3);margin-bottom:1rem" id="hdwQtyLabel">1 goat</div>
-      <!-- Total -->
-      <div class="hdw-total">
-        <span class="hdw-total-label">Your Qurbani total</span>
-        <span class="hdw-total-amount" id="hdwTotal">£85</span>
-      </div>
-      <!-- CTA -->
-      <button class="hdw-btn" onclick="hdwGoToDonate()">
-        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-        Secure your Qurbani
-      </button>
-      <div class="hdw-secure">
-        <span>Stripe secured</span><div class="hdw-secure-dot"></div>
-        <span>Instant confirmation</span>
+
+      <!-- Single row: Price | divider | Qty | divider | Total | divider | Button -->
+      <div style="display:flex;align-items:center;gap:0;border:1.5px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.03)">
+
+        <!-- Price per goat -->
+        <div style="padding:.9rem 1.2rem;text-align:center;flex-shrink:0;min-width:110px">
+          <div style="font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,168,76,.7);margin-bottom:.3rem">Per goat</div>
+          <div style="font-size:1.5rem;font-weight:900;color:#e8c96a;line-height:1">£85</div>
+        </div>
+
+        <div style="width:1px;background:rgba(255,255,255,.08);align-self:stretch;flex-shrink:0"></div>
+
+        <!-- Qty stepper -->
+        <div style="padding:.6rem .85rem;text-align:center;flex-shrink:0">
+          <div style="font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.4rem">How many?</div>
+          <div style="display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden;background:rgba(255,255,255,.04)">
+            <button onclick="hdwChangeQty(-1)" style="width:34px;height:34px;background:none;border:none;color:rgba(255,255,255,.6);font-size:1.1rem;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .18s" onmouseover="this.style.background='rgba(255,109,0,.15)';this.style.color='#FF6D00'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,.6)'">−</button>
+            <div id="hdwQtyDisplay" style="width:36px;text-align:center;font-size:1rem;font-weight:900;color:#fff;line-height:34px;user-select:none;border-left:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08)">1</div>
+            <button onclick="hdwChangeQty(1)" style="width:34px;height:34px;background:none;border:none;color:rgba(255,255,255,.6);font-size:1.1rem;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .18s" onmouseover="this.style.background='rgba(255,109,0,.15)';this.style.color='#FF6D00'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,.6)'">+</button>
+          </div>
+          <div style="font-size:.6rem;color:rgba(255,255,255,.25);margin-top:.35rem;text-align:center" id="hdwQtyLabel">1 goat</div>
+        </div>
+
+        <div style="width:1px;background:rgba(255,255,255,.08);align-self:stretch;flex-shrink:0"></div>
+
+        <!-- Total -->
+        <div style="padding:.9rem 1.2rem;text-align:center;flex-shrink:0;min-width:100px">
+          <div style="font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.3rem">Total</div>
+          <div style="font-size:1.5rem;font-weight:900;color:#FF6D00;line-height:1" id="hdwTotal">£85</div>
+        </div>
+
+        <div style="width:1px;background:rgba(255,255,255,.08);align-self:stretch;flex-shrink:0"></div>
+
+        <!-- Donate button -->
+        <button onclick="hdwGoToDonate()" style="flex:1;background:var(--orange);color:#fff;border:none;padding:0 1.5rem;height:100%;min-height:80px;font-size:.82rem;font-weight:700;cursor:pointer;font-family:'Onest',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;transition:all .2s;border-radius:0" onmouseover="this.style.background='#cc5500'" onmouseout="this.style.background='var(--orange)'">
+          <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <span>Give Qurbani</span>
+          <span style="font-size:.6rem;font-weight:400;opacity:.75">Stripe secured</span>
+        </button>
+
       </div>
     </div>
+
   </div>
 </section>
 
