@@ -651,53 +651,53 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
     </div>
 
     <!-- RIGHT CARD -->
-    <div class="reveal-right" style="background:rgba(255,255,255,.06);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:1.75rem 1.5rem;box-shadow:0 24px 64px rgba(0,0,0,.4)">
-      <div style="text-align:center;margin-bottom:1.75rem">
-        <div style="font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.25rem">Give your Qurbani</div>
-        <div style="font-size:.72rem;color:rgba(255,255,255,.6)">Secure payment via Stripe · Instant receipt</div>
+    <div class="reveal-right" style="background:rgba(255,255,255,.06);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.25rem 1rem;box-shadow:0 24px 64px rgba(0,0,0,.4)">
+      <div style="text-align:center;margin-bottom:1rem">
+        <div style="font-size:.9rem;font-weight:800;color:#fff;margin-bottom:.2rem">Give your Qurbani</div>
+        <div style="font-size:.62rem;color:rgba(255,255,255,.6)">Secure via Stripe · Instant receipt</div>
       </div>
       <!-- Unit price -->
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.75rem;text-align:center">
-        <div style="font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.25rem">Price per goat</div>
-        <div style="font-size:1.6rem;font-weight:900;color:var(--orange)">£85</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:.6rem .85rem;margin-bottom:1rem">
+        <div style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)">Price per goat</div>
+        <div style="font-size:1.2rem;font-weight:900;color:var(--orange)">£85</div>
       </div>
       <!-- Qty label -->
-      <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);display:block;margin-bottom:.75rem">How many goats?</div>
+      <div style="font-size:.55rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);display:block;margin-bottom:.5rem">How many goats?</div>
       <!-- Qty row -->
-      <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,.2);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.1);margin-bottom:.5rem">
-        <button onclick="donateChangeQty(-1)" style="width:56px;height:56px;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s;display:flex;align-items:center;justify-content:center;flex-shrink:0" onmouseover="this.style.background='rgba(255,109,0,.3)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#fff'">−</button>
-        <div style="width:1px;background:rgba(255,255,255,.2);height:56px;flex-shrink:0"></div>
-        <div id="dqtyDisplay" style="flex:1;text-align:center;font-size:1.6rem;font-weight:900;color:#fff;line-height:56px;user-select:none">1</div>
-        <div style="width:1px;background:rgba(255,255,255,.2);height:56px;flex-shrink:0"></div>
-        <button onclick="donateChangeQty(1)" style="width:56px;height:56px;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s;display:flex;align-items:center;justify-content:center;flex-shrink:0" onmouseover="this.style.background='rgba(255,109,0,.3)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#fff'">+</button>
+      <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,.2);border-radius:8px;overflow:hidden;background:rgba(255,255,255,.08);margin-bottom:.4rem">
+        <button onclick="donateChangeQty(-1)" style="width:40px;height:40px;background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s;display:flex;align-items:center;justify-content:center;flex-shrink:0" onmouseover="this.style.background='rgba(255,109,0,.3)'" onmouseout="this.style.background='none'">−</button>
+        <div style="width:1px;background:rgba(255,255,255,.2);height:40px;flex-shrink:0"></div>
+        <div id="dqtyDisplay" style="flex:1;text-align:center;font-size:1.2rem;font-weight:900;color:#fff;line-height:40px;user-select:none">1</div>
+        <div style="width:1px;background:rgba(255,255,255,.2);height:40px;flex-shrink:0"></div>
+        <button onclick="donateChangeQty(1)" style="width:40px;height:40px;background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s;display:flex;align-items:center;justify-content:center;flex-shrink:0" onmouseover="this.style.background='rgba(255,109,0,.3)'" onmouseout="this.style.background='none'">+</button>
       </div>
-      <div style="font-size:.72rem;color:rgba(255,255,255,.7);margin-bottom:1rem" id="dqtyLabel">1 goat</div>
+      <div style="font-size:.62rem;color:rgba(255,255,255,.5);margin-bottom:.75rem" id="dqtyLabel">1 goat</div>
       <!-- Shortcuts -->
-      <div style="display:flex;gap:.4rem;margin-bottom:1.75rem">
-        <button class="dqs active" id="dqs1" onclick="donateSetQty(1,this)" style="flex:1;background:var(--orange);border:1.5px solid #FF6D00;color:#fff;font-size:.65rem;font-weight:600;padding:.45rem .2rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">1 goat</button>
-        <button class="dqs" id="dqs3" onclick="donateSetQty(3,this)" style="flex:1;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">3 goats</button>
-        <button class="dqs" id="dqs5" onclick="donateSetQty(5,this)" style="flex:1;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">5 goats</button>
-        <button class="dqs" id="dqs7" onclick="donateSetQty(7,this)" style="flex:1;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">7 goats</button>
-        <button class="dqs" id="dqs10" onclick="donateSetQty(10,this)" style="flex:1;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">10</button>
+      <div style="display:flex;gap:.25rem;margin-bottom:1rem">
+        <button class="dqs active" id="dqs1" onclick="donateSetQty(1,this)" style="flex:1;background:var(--orange);border:1px solid #FF6D00;color:#fff;font-size:.6rem;font-weight:600;padding:.35rem .1rem;border-radius:5px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">1</button>
+        <button class="dqs" id="dqs3" onclick="donateSetQty(3,this)" style="flex:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:.6rem;font-weight:600;padding:.35rem .1rem;border-radius:5px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">3</button>
+        <button class="dqs" id="dqs5" onclick="donateSetQty(5,this)" style="flex:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:.6rem;font-weight:600;padding:.35rem .1rem;border-radius:5px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">5</button>
+        <button class="dqs" id="dqs7" onclick="donateSetQty(7,this)" style="flex:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:.6rem;font-weight:600;padding:.35rem .1rem;border-radius:5px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">7</button>
+        <button class="dqs" id="dqs10" onclick="donateSetQty(10,this)" style="flex:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:.6rem;font-weight:600;padding:.35rem .1rem;border-radius:5px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">10</button>
       </div>
       <!-- Breakdown -->
-      <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.25rem">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem"><span style="font-size:.72rem;color:rgba(255,255,255,.65)">Unit price</span><span style="font-size:.82rem;color:#fff;font-weight:600">£85.00</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem"><span style="font-size:.72rem;color:rgba(255,255,255,.65)">Quantity</span><span style="font-size:.82rem;color:#fff;font-weight:600" id="dbdQty">× 1</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:.6rem;border-top:1px solid rgba(255,255,255,.15)"><span style="font-size:.82rem;font-weight:700;color:#fff">Total donation</span><span style="font-size:1.35rem;font-weight:900;color:var(--orange)" id="dbdTotal">£85.00</span></div>
+      <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:.7rem .85rem;margin-bottom:.85rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem"><span style="font-size:.62rem;color:rgba(255,255,255,.6)">Unit price</span><span style="font-size:.72rem;color:#fff;font-weight:600">£85.00</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem"><span style="font-size:.62rem;color:rgba(255,255,255,.6)">Quantity</span><span style="font-size:.72rem;color:#fff;font-weight:600" id="dbdQty">× 1</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:.5rem;border-top:1px solid rgba(255,255,255,.12)"><span style="font-size:.72rem;font-weight:700;color:#fff">Total</span><span style="font-size:1.1rem;font-weight:900;color:var(--orange)" id="dbdTotal">£85.00</span></div>
       </div>
       <!-- Names section -->
-      <div style="margin-bottom:1.25rem">
-        <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.75rem">On whose behalf? <span style="color:rgba(255,255,255,.35);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></div>
-        <div id="namesContainer" style="display:flex;flex-direction:column;gap:.55rem"></div>
+      <div style="margin-bottom:.85rem">
+        <div style="font-size:.55rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.5rem">On whose behalf? <span style="color:rgba(255,255,255,.3);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></div>
+        <div id="namesContainer" style="display:flex;flex-direction:column;gap:.4rem"></div>
       </div>
       <!-- Pay button -->
-      <a id="stripeBtn" href="https://buy.stripe.com/7sY4gyfJQ1DF3yZelsafS00" onclick="return validateDonate(event)" style="width:100%;background:#FF6D00;color:#fff;border:none;padding:1.05rem;font-size:.92rem;font-weight:700;border-radius:12px;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;gap:.55rem;box-shadow:0 6px 24px rgba(255,109,0,.4);transition:all .25s;text-decoration:none" onmouseover="this.style.background='#cc5500';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#FF6D00';this.style.transform='translateY(0)'">
-        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      <a id="stripeBtn" href="https://buy.stripe.com/7sY4gyfJQ1DF3yZelsafS00" onclick="return validateDonate(event)" style="width:100%;background:#FF6D00;color:#fff;border:none;padding:.8rem;font-size:.8rem;font-weight:700;border-radius:10px;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;gap:.45rem;box-shadow:0 4px 16px rgba(255,109,0,.4);transition:all .25s;text-decoration:none" onmouseover="this.style.background='#cc5500';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#FF6D00';this.style.transform='translateY(0)'">
+        <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         Donate <span id="dbtnTotal">£85</span> via Stripe
       </a>
       <!-- Error message -->
-      <div id="donorError" style="display:none;background:rgba(255,59,48,.12);border:1px solid rgba(255,59,48,.35);color:#ff6b6b;font-size:.75rem;padding:.65rem .85rem;border-radius:8px;margin-top:.85rem;text-align:center"></div>
+      <div id="donorError" style="display:none;background:rgba(255,59,48,.12);border:1px solid rgba(255,59,48,.35);color:#ff6b6b;font-size:.7rem;padding:.5rem .75rem;border-radius:7px;margin-top:.65rem;text-align:center"></div>
     </div>
   </div>
 </section>
@@ -969,7 +969,7 @@ function donateUpdateUI(){
 function donateChangeQty(delta){
   dQty = Math.max(1, Math.min(100, dQty + delta));
   document.querySelectorAll('.dqs').forEach(b => {
-    b.style.borderColor='rgba(255,255,255,.2)';b.style.background='rgba(255,255,255,.12)';b.style.color='#fff';
+    b.style.borderColor='rgba(255,255,255,.2)';b.style.background='rgba(255,255,255,.1)';b.style.color='#fff';
     b.classList.remove('active');
   });
   ['1','3','5','7','10'].forEach(n => {
@@ -982,7 +982,7 @@ function donateChangeQty(delta){
 }
 function donateSetQty(n,btn){
   dQty=n;
-  document.querySelectorAll('.dqs').forEach(b=>{b.style.borderColor='rgba(255,255,255,.2)';b.style.background='rgba(255,255,255,.12)';b.style.color='#fff';b.classList.remove('active');});
+  document.querySelectorAll('.dqs').forEach(b=>{b.style.borderColor='rgba(255,255,255,.2)';b.style.background='rgba(255,255,255,.1)';b.style.color='#fff';b.classList.remove('active');});
   btn.style.borderColor='#FF6D00';btn.style.background='var(--orange)';btn.style.color='#fff';btn.classList.add('active');
   donateUpdateUI();
 }
