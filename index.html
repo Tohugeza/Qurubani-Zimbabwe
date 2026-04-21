@@ -624,7 +624,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
   <!-- Dark overlay — strong enough for text readability -->
   <div class="section-overlay" style="position:absolute;inset:0;background:rgba(2,13,25,.02);z-index:1"></div>
 
-  <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
+  <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 300px;gap:4rem;align-items:center">
 
     <!-- LEFT STORY -->
     <div class="reveal-left">
@@ -651,7 +651,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
     </div>
 
     <!-- RIGHT CARD -->
-    <div class="reveal-right" style="background:rgba(255,255,255,.06);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:2.25rem 2rem;box-shadow:0 24px 64px rgba(0,0,0,.4)">
+    <div class="reveal-right" style="background:rgba(255,255,255,.06);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:1.75rem 1.5rem;box-shadow:0 24px 64px rgba(0,0,0,.4)">
       <div style="text-align:center;margin-bottom:1.75rem">
         <div style="font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.25rem">Give your Qurbani</div>
         <div style="font-size:.72rem;color:rgba(255,255,255,.6)">Secure payment via Stripe · Instant receipt</div>
@@ -674,7 +674,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
       <div style="font-size:.72rem;color:rgba(255,255,255,.7);margin-bottom:1rem" id="dqtyLabel">1 goat</div>
       <!-- Shortcuts -->
       <div style="display:flex;gap:.4rem;margin-bottom:1.75rem">
-        <button class="dqs active" id="dqs1" onclick="donateSetQty(1,this)" style="flex:1;background:var(--orange);border:1.5px solid #FF6D00;color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">1 goat</button>
+        <button class="dqs active" id="dqs1" onclick="donateSetQty(1,this)" style="flex:1;background:var(--orange);border:1.5px solid #FF6D00;color:#fff;font-size:.65rem;font-weight:600;padding:.45rem .2rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">1 goat</button>
         <button class="dqs" id="dqs3" onclick="donateSetQty(3,this)" style="flex:1;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">3 goats</button>
         <button class="dqs" id="dqs5" onclick="donateSetQty(5,this)" style="flex:1;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">5 goats</button>
         <button class="dqs" id="dqs7" onclick="donateSetQty(7,this)" style="flex:1;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">7 goats</button>
@@ -1002,6 +1002,8 @@ donateUpdateUI();
 
 // PRELOADER
 window.addEventListener('load',()=>{
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  window.scrollTo({top:0,behavior:'instant'});
   setTimeout(()=>{
     document.getElementById('preloader').classList.add('hidden');
   },1600);
