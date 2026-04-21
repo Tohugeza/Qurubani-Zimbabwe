@@ -88,11 +88,11 @@ nav.scrolled{box-shadow:0 4px 24px rgba(2,13,25,.08);border-color:transparent}
 .hero-grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
 .hero-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:2.5rem;position:relative;z-index:1}
 .hero-inner>*{flex:unset;min-width:0;width:100%}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);background:rgba(255,109,0,.1);border:1px solid rgba(255,109,0,.2);padding:.4rem .95rem;border-radius:100px;margin-bottom:1.75rem;animation:heroFadeIn .8s ease .2s both}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.85);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:.4rem .95rem;border-radius:100px;margin-bottom:1.75rem;animation:heroFadeIn .8s ease .2s both}
 @keyframes heroFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;line-height:1.05;color:#fff;margin-bottom:1.25rem;animation:heroFadeIn .8s ease .35s both}
 .hero h1 span{color:var(--orange);display:inline-block}
-.hero-desc{font-size:.95rem;line-height:1.85;color:#7a95b0;max-width:400px;margin-bottom:2rem;font-weight:300;animation:heroFadeIn .8s ease .5s both}
+.hero-desc{font-size:.95rem;line-height:1.85;color:rgba(255,255,255,0.85);max-width:400px;margin-bottom:2rem;font-weight:300;animation:heroFadeIn .8s ease .5s both}
 .hero-checklist{display:flex;gap:1.5rem;margin-bottom:2.25rem;flex-wrap:wrap;animation:heroFadeIn .8s ease .6s both}
 .hero-check{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:#5a7a9a;font-weight:400}
 .check-icon{width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center}
@@ -105,7 +105,7 @@ nav.scrolled{box-shadow:0 4px 24px rgba(2,13,25,.08);border-color:transparent}
 .btn-hero:active{transform:translateY(0)}
 .btn-hero svg{width:16px;height:16px;fill:#fff;transition:transform .2s}
 .btn-hero:hover svg{transform:translateX(3px)}
-.btn-ghost-hero{background:transparent;color:#7a95b0;border:1.5px solid rgba(255,255,255,.12);padding:.95rem 2.2rem;font-size:.88rem;font-weight:500;border-radius:8px;cursor:pointer;font-family:'Onest',sans-serif;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+.btn-ghost-hero{background:transparent;color:rgba(255,255,255,0.85);border:1.5px solid rgba(255,255,255,.35);padding:.95rem 2.2rem;font-size:.88rem;font-weight:500;border-radius:8px;cursor:pointer;font-family:'Onest',sans-serif;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
 .btn-ghost-hero:hover{border-color:rgba(255,255,255,.35);color:#fff}
 
 /* Hero image column */
@@ -144,7 +144,7 @@ nav.scrolled{box-shadow:0 4px 24px rgba(2,13,25,.08);border-color:transparent}
 .hdw-tier-info{flex:1}
 .hdw-tier-name{font-size:.82rem;font-weight:600;color:#fff;display:block;line-height:1.2}
 .hdw-tier-desc{font-size:.68rem;color:#5a7a9a;font-weight:400;margin-top:.15rem;display:block}
-.hdw-tier-price{font-size:1.2rem;font-weight:900;color:#7a95b0;transition:color .2s;flex-shrink:0}
+.hdw-tier-price{font-size:1.2rem;font-weight:900;color:rgba(255,255,255,0.85);transition:color .2s;flex-shrink:0}
 .hdw-tier-popular{position:absolute;top:-.55rem;right:.85rem;background:var(--orange);color:#fff;font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .55rem;border-radius:100px}
 .hdw-custom{margin-bottom:1.1rem}
 .hdw-custom-label{font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#3a5570;display:block;margin-bottom:.5rem}
@@ -457,7 +457,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
     <div style="display:flex;flex-direction:column;justify-content:center">
       <!-- Eyebrow — original orange style -->
       <div class="hero-eyebrow">
-        <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:var(--orange)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:rgba(255,255,255,0.85)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         Eid ul-Adha 2026 · Zimbabwe
       </div>
       <!-- H1 — words animate in one by one -->
@@ -469,7 +469,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
         <span class="hero-word" style="animation-delay:.9s">This</span>
         <span class="hero-word" style="animation-delay:1.04s">Eid.</span>
       </h1>
-      <!-- Description — original #7a95b0 -->
+      <!-- Description — original rgba(255,255,255,0.85) -->
       <p class="hero-desc" style="animation:heroFadeUp .8s ease 1.15s both">Your sacrifice reaches the most vulnerable families across Zimbabwe — fresh meat, trusted partners, 1 year of proven impact.</p>
       <div class="hero-checklist" style="animation:heroFadeUp .8s ease 1.3s both">
         <div class="hero-check"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Stripe secured</div>
@@ -627,13 +627,13 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
 
     <!-- LEFT STORY -->
     <div class="reveal-left">
-      <div style="display:inline-flex;align-items:center;gap:.5rem;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);background:rgba(255,109,0,.1);border:1px solid rgba(255,109,0,.2);padding:.4rem .9rem;border-radius:100px;margin-bottom:1.5rem">
-        <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:var(--orange)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <div style="display:inline-flex;align-items:center;gap:.5rem;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.85);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:.4rem .9rem;border-radius:100px;margin-bottom:1.5rem">
+        <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:rgba(255,255,255,0.85)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         Eid ul-Adha 2026 · Zimbabwe
       </div>
       <h1 style="font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;line-height:1.05;color:#fff;margin-bottom:1rem">Your sacrifice.<br><span style="color:var(--orange)">Their Eid.</span></h1>
-      <p style="font-size:.9rem;font-style:italic;color:#7a95b0;line-height:1.7;border-left:2px solid var(--orange);padding-left:1rem;margin-bottom:1.5rem">"It is neither the meat nor their blood that reaches Allah, but it is the piety from you that reaches Him." — Qur'an 22:37</p>
-      <p style="font-size:.88rem;line-height:1.85;color:#7a95b0;font-weight:300;margin-bottom:2rem;max-width:440px">In 2025, from 29 goats we fed 89 families — the first ever Qurbani for the Gilston Farm community. For Eid 2026, your donation goes directly to the community — fresh meat, trusted partners, every penny accounted for.</p>
+      <p style="font-size:.9rem;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.7;border-left:2px solid var(--orange);padding-left:1rem;margin-bottom:1.5rem">"It is neither the meat nor their blood that reaches Allah, but it is the piety from you that reaches Him." — Qur'an 22:37</p>
+      <p style="font-size:.88rem;line-height:1.85;color:rgba(255,255,255,0.85);font-weight:300;margin-bottom:2rem;max-width:440px">In 2025, from 29 goats we fed 89 families — the first ever Qurbani for the Gilston Farm community. For Eid 2026, your donation goes directly to the community — fresh meat, trusted partners, every penny accounted for.</p>
       <div style="display:flex;gap:1.5rem;margin-bottom:2rem">
         <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:var(--orange);line-height:1">£85</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5a7a9a;margin-top:.25rem">Per goat</span></div>
         <div style="width:1px;background:rgba(255,255,255,.08)"></div>
@@ -642,10 +642,10 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
         <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:var(--orange);line-height:1">89</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5a7a9a;margin-top:.25rem">Families fed</span></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:.6rem">
-        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:#7a95b0"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Sourced from local Zimbabwean farmers</div>
-        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:#7a95b0"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Slaughtered according to Islamic guidelines</div>
-        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:#7a95b0"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Photos sent to every donor after distribution</div>
-        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:#7a95b0"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Community-funded initiative · Gilston Farm</div>
+        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,0.85)"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Sourced from local Zimbabwean farmers</div>
+        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,0.85)"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Slaughtered according to Islamic guidelines</div>
+        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,0.85)"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Photos sent to every donor after distribution</div>
+        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,0.85)"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Community-funded initiative · Gilston Farm</div>
       </div>
     </div>
 
