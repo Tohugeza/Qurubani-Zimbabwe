@@ -449,19 +449,19 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
 <section class="hero" style="position:relative">
   <div class="hero-bg-desktop" style="position:absolute;inset:0;background-image:url('Background images/bg-desktop.jpg');background-size:cover;background-position:center 30%;z-index:0"></div>
   <div class="hero-bg-mobile" style="position:absolute;inset:0;background-image:url('Background images/bg-mobile.jpg');background-size:cover;background-position:center 30%;z-index:0;display:none"></div>
-  <!-- OVERLAY: subtle dark tint to lift text off warm background -->
-  <div style="position:absolute;inset:0;background:rgba(2,13,25,0.38);z-index:1;pointer-events:none"></div>
+  <!-- OVERLAY: strong for darker image -->
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,13,25,.82) 0%,rgba(2,13,25,.7) 50%,rgba(2,13,25,.78) 100%);z-index:1;pointer-events:none"></div>
   <div class="hero-inner" style="position:relative;z-index:2">
 
     <!-- TEXT BLOCK -->
     <div style="display:flex;flex-direction:column;justify-content:center">
-      <!-- Eyebrow — white, slides in from right -->
-      <div class="hero-eyebrow" style="color:#fff;background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.25);animation:heroSlideRight .7s ease .2s both">
-        <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#fff"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <!-- Eyebrow — original orange style -->
+      <div class="hero-eyebrow">
+        <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:var(--orange)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         Eid ul-Adha 2026 · Zimbabwe
       </div>
       <!-- H1 — words animate in one by one -->
-      <h1 style="text-shadow:0 2px 16px rgba(0,0,0,0.6),0 1px 4px rgba(0,0,0,0.5)">
+      <h1>
         <span class="hero-word" style="animation-delay:.35s">Feed</span>
         <span class="hero-word" style="animation-delay:.48s">Families.</span><br>
         <span class="hero-word" style="animation-delay:.62s;color:var(--orange)">Give</span>
@@ -469,70 +469,65 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
         <span class="hero-word" style="animation-delay:.9s">This</span>
         <span class="hero-word" style="animation-delay:1.04s">Eid.</span>
       </h1>
-      <!-- Description fades up -->
-      <p class="hero-desc" style="color:rgba(255,255,255,0.92);text-shadow:0 1px 8px rgba(0,0,0,0.5);animation:heroFadeUp .8s ease 1.15s both">Your sacrifice reaches the most vulnerable families across Zimbabwe — fresh meat, trusted partners, 1 year of proven impact.</p>
+      <!-- Description — original #7a95b0 -->
+      <p class="hero-desc" style="animation:heroFadeUp .8s ease 1.15s both">Your sacrifice reaches the most vulnerable families across Zimbabwe — fresh meat, trusted partners, 1 year of proven impact.</p>
       <div class="hero-checklist" style="animation:heroFadeUp .8s ease 1.3s both">
-        <div class="hero-check" style="color:rgba(255,255,255,0.85)"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Stripe secured</div>
+        <div class="hero-check"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Stripe secured</div>
       </div>
       <div class="hero-actions" style="animation:heroFadeUp .8s ease 1.45s both">
         <button class="btn-hero" onclick="smoothScrollTo('#donate')">
           <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           Give your Qurbani
         </button>
-        <a class="btn-ghost-hero" href="#gallery" style="color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.45)">See past Qurbanis →</a>
-        <a class="btn-ghost-hero" href="#history" style="color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.45)">History of Muslims in Zimbabwe →</a>
+        <a class="btn-ghost-hero" href="#gallery">See past Qurbanis →</a>
+        <a class="btn-ghost-hero" href="#history">History of Muslims in Zimbabwe →</a>
       </div>
     </div>
 
-    <!-- WIDGET: single horizontal row — Price | Qty | Total | Donate -->
-    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.5rem 1.75rem;backdrop-filter:blur(20px);animation:heroFadeUp .8s ease .3s both">
+    <!-- WIDGET: responsive — row on desktop, stacked on mobile -->
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.25rem 1.5rem;backdrop-filter:blur(20px);animation:heroFadeUp .8s ease .3s both">
 
-      <!-- Row label -->
-      <div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem">
+      <!-- Label -->
+      <div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#5a7a9a;margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem">
         <svg viewBox="0 0 24 24" style="width:10px;height:10px;fill:var(--orange)"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         Secure your Qurbani · Eid ul-Adha 2026
       </div>
 
-      <!-- Single row: Price | divider | Qty | divider | Total | divider | Button -->
-      <div style="display:flex;align-items:center;gap:0;border:1.5px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.03)">
+      <!-- Stats row: Price | Qty | Total — always horizontal -->
+      <div style="display:flex;align-items:stretch;border:1.5px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.03);margin-bottom:.75rem">
 
-        <!-- Price per goat -->
-        <div style="padding:.9rem 1.2rem;text-align:center;flex-shrink:0;min-width:110px">
-          <div style="font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,168,76,.7);margin-bottom:.3rem">Per goat</div>
-          <div style="font-size:1.5rem;font-weight:900;color:#e8c96a;line-height:1">£85</div>
+        <!-- Price -->
+        <div style="flex:1;padding:.75rem .5rem;text-align:center;border-right:1px solid rgba(255,255,255,.08)">
+          <div style="font-size:.52rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5a7a9a;margin-bottom:.25rem">Per goat</div>
+          <div style="font-size:1.35rem;font-weight:900;color:var(--orange);line-height:1">£85</div>
         </div>
-
-        <div style="width:1px;background:rgba(255,255,255,.08);align-self:stretch;flex-shrink:0"></div>
 
         <!-- Qty stepper -->
-        <div style="padding:.6rem .85rem;text-align:center;flex-shrink:0">
-          <div style="font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.4rem">How many?</div>
-          <div style="display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden;background:rgba(255,255,255,.04)">
-            <button onclick="hdwChangeQty(-1)" style="width:34px;height:34px;background:none;border:none;color:rgba(255,255,255,.6);font-size:1.1rem;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .18s" onmouseover="this.style.background='rgba(255,109,0,.15)';this.style.color='#FF6D00'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,.6)'">−</button>
-            <div id="hdwQtyDisplay" style="width:36px;text-align:center;font-size:1rem;font-weight:900;color:#fff;line-height:34px;user-select:none;border-left:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08)">1</div>
-            <button onclick="hdwChangeQty(1)" style="width:34px;height:34px;background:none;border:none;color:rgba(255,255,255,.6);font-size:1.1rem;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .18s" onmouseover="this.style.background='rgba(255,109,0,.15)';this.style.color='#FF6D00'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,.6)'">+</button>
+        <div style="flex:1;padding:.5rem .5rem;text-align:center;border-right:1px solid rgba(255,255,255,.08)">
+          <div style="font-size:.52rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.35rem">How many?</div>
+          <div style="display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.1);border-radius:7px;overflow:hidden;background:rgba(255,255,255,.04)">
+            <button onclick="hdwChangeQty(-1)" style="width:30px;height:30px;background:none;border:none;color:rgba(255,255,255,.6);font-size:1.1rem;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;transition:all .18s" onmouseover="this.style.background='rgba(255,109,0,.15)';this.style.color='#FF6D00'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,.6)'">−</button>
+            <div id="hdwQtyDisplay" style="width:32px;text-align:center;font-size:.95rem;font-weight:900;color:#fff;line-height:30px;user-select:none;border-left:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08)">1</div>
+            <button onclick="hdwChangeQty(1)" style="width:30px;height:30px;background:none;border:none;color:rgba(255,255,255,.6);font-size:1.1rem;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;transition:all .18s" onmouseover="this.style.background='rgba(255,109,0,.15)';this.style.color='#FF6D00'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,.6)'">+</button>
           </div>
-          <div style="font-size:.6rem;color:rgba(255,255,255,.25);margin-top:.35rem;text-align:center" id="hdwQtyLabel">1 goat</div>
+          <div style="font-size:.55rem;color:rgba(255,255,255,.25);margin-top:.3rem;text-align:center" id="hdwQtyLabel">1 goat</div>
         </div>
-
-        <div style="width:1px;background:rgba(255,255,255,.08);align-self:stretch;flex-shrink:0"></div>
 
         <!-- Total -->
-        <div style="padding:.9rem 1.2rem;text-align:center;flex-shrink:0;min-width:100px">
-          <div style="font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.3rem">Total</div>
-          <div style="font-size:1.5rem;font-weight:900;color:#FF6D00;line-height:1" id="hdwTotal">£85</div>
+        <div style="flex:1;padding:.75rem .5rem;text-align:center">
+          <div style="font-size:.52rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.25rem">Total</div>
+          <div style="font-size:1.35rem;font-weight:900;color:#FF6D00;line-height:1" id="hdwTotal">£85</div>
         </div>
 
-        <div style="width:1px;background:rgba(255,255,255,.08);align-self:stretch;flex-shrink:0"></div>
-
-        <!-- Donate button -->
-        <button onclick="hdwGoToDonate()" style="flex:1;background:var(--orange);color:#fff;border:none;padding:0 1.5rem;height:100%;min-height:80px;font-size:.82rem;font-weight:700;cursor:pointer;font-family:'Onest',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;transition:all .2s;border-radius:0" onmouseover="this.style.background='#cc5500'" onmouseout="this.style.background='var(--orange)'">
-          <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          <span>Give Qurbani</span>
-          <span style="font-size:.6rem;font-weight:400;opacity:.75">Stripe secured</span>
-        </button>
-
       </div>
+
+      <!-- Donate button — full width on all screens -->
+      <button onclick="hdwGoToDonate()" style="width:100%;background:var(--orange);color:#fff;border:none;padding:.85rem 1rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;gap:.5rem;border-radius:10px;transition:all .2s;box-shadow:0 4px 16px rgba(255,109,0,.35)" onmouseover="this.style.background='#cc5500';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--orange)';this.style.transform='translateY(0)'">
+        <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        Give your Qurbani
+        <span style="font-size:.65rem;font-weight:400;opacity:.8;margin-left:.25rem">· Stripe secured</span>
+      </button>
+
     </div>
 
   </div>
@@ -625,118 +620,83 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
   <!-- Background image -->
   <div class="hero-bg-desktop" style="position:absolute;inset:0;background-image:url('Background images/bg-desktop.jpg');background-size:cover;background-position:center 30%;z-index:0"></div>
   <div class="hero-bg-mobile" style="position:absolute;inset:0;background-image:url('Background images/bg-mobile.jpg');background-size:cover;background-position:center 30%;z-index:0;display:none"></div>
-  <!-- OVERLAY: subtle dark tint to lift text off warm background -->
-  <div style="position:absolute;inset:0;background:rgba(2,13,25,0.38);z-index:1"></div>
+  <!-- Dark overlay — strong enough for text readability -->
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,13,25,.92) 0%,rgba(2,13,25,.78) 45%,rgba(2,13,25,.68) 70%,rgba(2,13,25,.88) 100%);z-index:1"></div>
 
   <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
 
     <!-- LEFT STORY -->
     <div class="reveal-left">
-      <div style="display:inline-flex;align-items:center;gap:.5rem;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#e8c96a;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.25);padding:.4rem .9rem;border-radius:100px;margin-bottom:1.5rem">
-        <div style="width:6px;height:6px;background:#e8c96a;border-radius:50%"></div>
+      <div style="display:inline-flex;align-items:center;gap:.5rem;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);background:rgba(255,109,0,.1);border:1px solid rgba(255,109,0,.2);padding:.4rem .9rem;border-radius:100px;margin-bottom:1.5rem">
+        <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:var(--orange)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         Eid ul-Adha 2026 · Zimbabwe
       </div>
-      <h1 style="font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;line-height:1.05;color:#fff;margin-bottom:1rem">Your sacrifice.<br><span style="color:#e8c96a">Their Eid.</span></h1>
-      <p style="font-size:.9rem;font-style:italic;color:rgba(201,168,76,.75);line-height:1.7;border-left:2px solid #C9A84C;padding-left:1rem;margin-bottom:1.5rem">"It is neither the meat nor their blood that reaches Allah, but it is the piety from you that reaches Him." — Qur'an 22:37</p>
-      <p style="font-size:.88rem;line-height:1.85;color:rgba(255,255,255,.6);font-weight:300;margin-bottom:2rem;max-width:440px">In 2025, from 29 goats we fed 89 families — the first ever Qurbani for the Gilston Farm community. For Eid 2026, your donation goes directly to the community — fresh meat, trusted partners, every penny accounted for.</p>
+      <h1 style="font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;line-height:1.05;color:#fff;margin-bottom:1rem">Your sacrifice.<br><span style="color:var(--orange)">Their Eid.</span></h1>
+      <p style="font-size:.9rem;font-style:italic;color:#7a95b0;line-height:1.7;border-left:2px solid var(--orange);padding-left:1rem;margin-bottom:1.5rem">"It is neither the meat nor their blood that reaches Allah, but it is the piety from you that reaches Him." — Qur'an 22:37</p>
+      <p style="font-size:.88rem;line-height:1.85;color:#7a95b0;font-weight:300;margin-bottom:2rem;max-width:440px">In 2025, from 29 goats we fed 89 families — the first ever Qurbani for the Gilston Farm community. For Eid 2026, your donation goes directly to the community — fresh meat, trusted partners, every penny accounted for.</p>
       <div style="display:flex;gap:1.5rem;margin-bottom:2rem">
-        <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:#e8c96a;line-height:1">£85</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.25rem">Per goat</span></div>
+        <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:var(--orange);line-height:1">£85</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5a7a9a;margin-top:.25rem">Per goat</span></div>
         <div style="width:1px;background:rgba(255,255,255,.08)"></div>
-        <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:#e8c96a;line-height:1">29</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.25rem">Goats 2025</span></div>
+        <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:var(--orange);line-height:1">29</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5a7a9a;margin-top:.25rem">Goats 2025</span></div>
         <div style="width:1px;background:rgba(255,255,255,.08)"></div>
-        <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:#e8c96a;line-height:1">89</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.25rem">Families fed</span></div>
+        <div style="display:flex;flex-direction:column"><span style="font-size:1.6rem;font-weight:900;color:var(--orange);line-height:1">89</span><span style="font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5a7a9a;margin-top:.25rem">Families fed</span></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:.6rem">
-        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,.65)"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Sourced from local Zimbabwean farmers</div>
-        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,.65)"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Slaughtered according to Islamic guidelines</div>
-        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,.65)"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Photos sent to every donor after distribution</div>
-        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,.65)"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Community-funded initiative · Gilston Farm</div>
+        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:#7a95b0"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Sourced from local Zimbabwean farmers</div>
+        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:#7a95b0"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Slaughtered according to Islamic guidelines</div>
+        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:#7a95b0"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Photos sent to every donor after distribution</div>
+        <div style="display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:#7a95b0"><div style="width:18px;height:18px;background:var(--orange);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>Community-funded initiative · Gilston Farm</div>
       </div>
     </div>
 
     <!-- RIGHT CARD -->
-    <div class="reveal-right" style="background:rgba(255,255,255,.05);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:2.25rem 2rem;box-shadow:0 24px 64px rgba(0,0,0,.45)">
+    <div class="reveal-right" style="background:rgba(255,255,255,.06);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:2.25rem 2rem;box-shadow:0 24px 64px rgba(0,0,0,.4)">
       <div style="text-align:center;margin-bottom:1.75rem">
         <div style="font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.25rem">Give your Qurbani</div>
-        <div style="font-size:.72rem;color:rgba(255,255,255,.35)">Secure payment via Stripe · Instant receipt</div>
+        <div style="font-size:.72rem;color:rgba(255,255,255,.6)">Secure payment via Stripe · Instant receipt</div>
       </div>
       <!-- Unit price -->
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.75rem;text-align:center">
-        <div style="font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,168,76,.6);margin-bottom:.25rem">Price per goat</div>
-        <div style="font-size:1.6rem;font-weight:900;color:#e8c96a">£85</div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.75rem;text-align:center">
+        <div style="font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.25rem">Price per goat</div>
+        <div style="font-size:1.6rem;font-weight:900;color:var(--orange)">£85</div>
       </div>
       <!-- Qty label -->
-      <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:.75rem">How many goats?</div>
+      <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);display:block;margin-bottom:.75rem">How many goats?</div>
       <!-- Qty row -->
-      <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.04);margin-bottom:.5rem">
-        <button onclick="donateChangeQty(-1)" style="width:56px;height:56px;background:none;border:none;color:rgba(255,255,255,.6);font-size:1.4rem;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s;display:flex;align-items:center;justify-content:center;flex-shrink:0" onmouseover="this.style.background='rgba(255,109,0,.12)';this.style.color='#FF6D00'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,.6)'">−</button>
-        <div style="width:1px;background:rgba(255,255,255,.08);height:56px;flex-shrink:0"></div>
+      <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,.2);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.1);margin-bottom:.5rem">
+        <button onclick="donateChangeQty(-1)" style="width:56px;height:56px;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s;display:flex;align-items:center;justify-content:center;flex-shrink:0" onmouseover="this.style.background='rgba(255,109,0,.3)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#fff'">−</button>
+        <div style="width:1px;background:rgba(255,255,255,.2);height:56px;flex-shrink:0"></div>
         <div id="dqtyDisplay" style="flex:1;text-align:center;font-size:1.6rem;font-weight:900;color:#fff;line-height:56px;user-select:none">1</div>
-        <div style="width:1px;background:rgba(255,255,255,.08);height:56px;flex-shrink:0"></div>
-        <button onclick="donateChangeQty(1)" style="width:56px;height:56px;background:none;border:none;color:rgba(255,255,255,.6);font-size:1.4rem;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s;display:flex;align-items:center;justify-content:center;flex-shrink:0" onmouseover="this.style.background='rgba(255,109,0,.12)';this.style.color='#FF6D00'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,.6)'">+</button>
+        <div style="width:1px;background:rgba(255,255,255,.2);height:56px;flex-shrink:0"></div>
+        <button onclick="donateChangeQty(1)" style="width:56px;height:56px;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s;display:flex;align-items:center;justify-content:center;flex-shrink:0" onmouseover="this.style.background='rgba(255,109,0,.3)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='#fff'">+</button>
       </div>
-      <div style="font-size:.72rem;color:rgba(255,255,255,.35);margin-bottom:1rem" id="dqtyLabel">1 goat</div>
+      <div style="font-size:.72rem;color:rgba(255,255,255,.7);margin-bottom:1rem" id="dqtyLabel">1 goat</div>
       <!-- Shortcuts -->
       <div style="display:flex;gap:.4rem;margin-bottom:1.75rem">
-        <button class="dqs active" id="dqs1" onclick="donateSetQty(1,this)" style="flex:1;background:rgba(255,109,0,.1);border:1.5px solid #FF6D00;color:#FF6D00;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">1 goat</button>
-        <button class="dqs" id="dqs3" onclick="donateSetQty(3,this)" style="flex:1;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);color:rgba(255,255,255,.5);font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">3 goats</button>
-        <button class="dqs" id="dqs5" onclick="donateSetQty(5,this)" style="flex:1;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);color:rgba(255,255,255,.5);font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">5 goats</button>
-        <button class="dqs" id="dqs7" onclick="donateSetQty(7,this)" style="flex:1;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);color:rgba(255,255,255,.5);font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">7 goats</button>
-        <button class="dqs" id="dqs10" onclick="donateSetQty(10,this)" style="flex:1;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);color:rgba(255,255,255,.5);font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">10</button>
+        <button class="dqs active" id="dqs1" onclick="donateSetQty(1,this)" style="flex:1;background:var(--orange);border:1.5px solid #FF6D00;color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">1 goat</button>
+        <button class="dqs" id="dqs3" onclick="donateSetQty(3,this)" style="flex:1;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">3 goats</button>
+        <button class="dqs" id="dqs5" onclick="donateSetQty(5,this)" style="flex:1;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">5 goats</button>
+        <button class="dqs" id="dqs7" onclick="donateSetQty(7,this)" style="flex:1;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">7 goats</button>
+        <button class="dqs" id="dqs10" onclick="donateSetQty(10,this)" style="flex:1;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:.72rem;font-weight:600;padding:.45rem .3rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;text-align:center;transition:all .18s">10</button>
       </div>
       <!-- Breakdown -->
-      <div style="background:rgba(255,109,0,.06);border:1px solid rgba(255,109,0,.15);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.25rem">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem"><span style="font-size:.72rem;color:rgba(255,255,255,.4)">Unit price</span><span style="font-size:.82rem;color:rgba(255,255,255,.7);font-weight:600">£85.00</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem"><span style="font-size:.72rem;color:rgba(255,255,255,.4)">Quantity</span><span style="font-size:.82rem;color:rgba(255,255,255,.7);font-weight:600" id="dbdQty">× 1</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:.6rem;border-top:1px solid rgba(255,109,0,.15)"><span style="font-size:.82rem;font-weight:700;color:rgba(255,255,255,.8)">Total donation</span><span style="font-size:1.35rem;font-weight:900;color:#FF6D00" id="dbdTotal">£85.00</span></div>
+      <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:1rem 1.1rem;margin-bottom:1.25rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem"><span style="font-size:.72rem;color:rgba(255,255,255,.65)">Unit price</span><span style="font-size:.82rem;color:#fff;font-weight:600">£85.00</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem"><span style="font-size:.72rem;color:rgba(255,255,255,.65)">Quantity</span><span style="font-size:.82rem;color:#fff;font-weight:600" id="dbdQty">× 1</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:.6rem;border-top:1px solid rgba(255,255,255,.15)"><span style="font-size:.82rem;font-weight:700;color:#fff">Total donation</span><span style="font-size:1.35rem;font-weight:900;color:var(--orange)" id="dbdTotal">£85.00</span></div>
       </div>
       <!-- Names section -->
-      <div style="margin-bottom:1.1rem">
-        <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.65rem">Donor on behalf of: <span style="color:rgba(255,255,255,.2);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></div>
+      <div style="margin-bottom:1.25rem">
+        <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.75rem">On whose behalf? <span style="color:rgba(255,255,255,.35);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></div>
         <div id="namesContainer" style="display:flex;flex-direction:column;gap:.55rem"></div>
       </div>
-      <!-- Divider -->
-      <div style="height:1px;background:rgba(255,255,255,.07);margin:1.1rem 0"></div>
-      <!-- Donor details -->
-      <div style="margin-bottom:1.1rem">
-        <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.75rem">Your details</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-bottom:.55rem" class="donor-name-grid">
-          <div>
-            <label style="font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);display:block;margin-bottom:.3rem">First name *</label>
-            <input id="donorFirst" type="text" placeholder="Ahmed" autocomplete="given-name" style="width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);color:#fff;padding:.65rem .85rem;font-size:.82rem;font-family:'Onest',sans-serif;border-radius:8px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#FF6D00'" onblur="this.style.borderColor='rgba(255,255,255,.08)'" oninput="this.style.borderColor='#FF6D00'" />
-          </div>
-          <div>
-            <label style="font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);display:block;margin-bottom:.3rem">Surname *</label>
-            <input id="donorLast" type="text" placeholder="Khan" autocomplete="family-name" style="width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);color:#fff;padding:.65rem .85rem;font-size:.82rem;font-family:'Onest',sans-serif;border-radius:8px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#FF6D00'" onblur="this.style.borderColor='rgba(255,255,255,.08)'" oninput="this.style.borderColor='#FF6D00'" />
-          </div>
-        </div>
-        <div style="margin-bottom:.55rem">
-          <label style="font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);display:block;margin-bottom:.3rem">Phone number *</label>
-          <input id="donorPhone" type="tel" placeholder="+44 7700 000000" autocomplete="tel" style="width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);color:#fff;padding:.65rem .85rem;font-size:.82rem;font-family:'Onest',sans-serif;border-radius:8px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#FF6D00'" onblur="this.style.borderColor='rgba(255,255,255,.08)'" oninput="this.style.borderColor='#FF6D00'" />
-        </div>
-        <div style="margin-bottom:.55rem">
-          <label style="font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);display:block;margin-bottom:.3rem">Email address *</label>
-          <input id="donorEmail" type="email" placeholder="you@example.com" autocomplete="email" style="width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);color:#fff;padding:.65rem .85rem;font-size:.82rem;font-family:'Onest',sans-serif;border-radius:8px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#FF6D00'" onblur="this.style.borderColor='rgba(255,255,255,.08)'" oninput="this.style.borderColor='#FF6D00'" />
-        </div>
-        <div style="margin-bottom:.55rem">
-          <label style="font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);display:block;margin-bottom:.3rem">Special instructions <span style="color:rgba(255,255,255,.2);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
-          <textarea id="donorInstructions" placeholder="Any specific requests or instructions for your Qurbani..." rows="3" style="width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);color:#fff;padding:.65rem .85rem;font-size:.82rem;font-family:'Onest',sans-serif;border-radius:8px;outline:none;transition:border-color .2s;resize:vertical" onfocus="this.style.borderColor='#FF6D00'" onblur="this.style.borderColor='rgba(255,255,255,.08)'"></textarea>
-        </div>
-        <!-- Comms checkbox -->
-        <div onclick="toggleComms()" style="display:flex;align-items:flex-start;gap:.65rem;padding:.7rem .85rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(255,255,255,.15)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)'">
-          <div id="commsCheck" style="width:17px;height:17px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s">
-            <svg id="commsIcon" viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff;opacity:0;transition:opacity .2s"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          </div>
-          <div style="font-size:.75rem;color:rgba(255,255,255,.5);line-height:1.55;font-weight:300">I am happy to receive updates and photos about my Qurbani.</div>
-        </div>
-      </div>
-      <!-- Error message -->
-      <div id="donorError" style="display:none;background:rgba(255,59,48,.1);border:1px solid rgba(255,59,48,.3);color:#ff6b6b;font-size:.75rem;padding:.65rem .85rem;border-radius:8px;margin-bottom:.85rem;text-align:center"></div>
       <!-- Pay button -->
-      <a id="stripeBtn" href="https://buy.stripe.com/7sY4gyfJQ1DF3yZelsafS00" onclick="return validateDonate(event)" style="width:100%;background:#FF6D00;color:#fff;border:none;padding:1.05rem;font-size:.92rem;font-weight:700;border-radius:12px;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;gap:.55rem;box-shadow:0 6px 24px rgba(255,109,0,.35);transition:all .25s;text-decoration:none" onmouseover="this.style.background='#cc5500';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#FF6D00';this.style.transform='translateY(0)'">
+      <a id="stripeBtn" href="https://buy.stripe.com/7sY4gyfJQ1DF3yZelsafS00" onclick="return validateDonate(event)" style="width:100%;background:#FF6D00;color:#fff;border:none;padding:1.05rem;font-size:.92rem;font-weight:700;border-radius:12px;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;gap:.55rem;box-shadow:0 6px 24px rgba(255,109,0,.4);transition:all .25s;text-decoration:none" onmouseover="this.style.background='#cc5500';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#FF6D00';this.style.transform='translateY(0)'">
         <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-        Secure your Qurbani — <span id="dbtnTotal">£85</span> via Stripe
+        Donate <span id="dbtnTotal">£85</span> via Stripe
       </a>
+      <!-- Error message -->
+      <div id="donorError" style="display:none;background:rgba(255,59,48,.12);border:1px solid rgba(255,59,48,.35);color:#ff6b6b;font-size:.75rem;padding:.65rem .85rem;border-radius:8px;margin-top:.85rem;text-align:center"></div>
     </div>
   </div>
 </section>
@@ -1009,21 +969,21 @@ function donateUpdateUI(){
 function donateChangeQty(delta){
   dQty = Math.max(1, Math.min(100, dQty + delta));
   document.querySelectorAll('.dqs').forEach(b => {
-    b.style.borderColor='rgba(255,255,255,.08)';b.style.background='rgba(255,255,255,.04)';b.style.color='rgba(255,255,255,.5)';
+    b.style.borderColor='rgba(255,255,255,.2)';b.style.background='rgba(255,255,255,.12)';b.style.color='#fff';
     b.classList.remove('active');
   });
   ['1','3','5','7','10'].forEach(n => {
     if(parseInt(n)===dQty){
       const btn=document.getElementById('dqs'+n);
-      if(btn){btn.style.borderColor='#FF6D00';btn.style.background='rgba(255,109,0,.1)';btn.style.color='#FF6D00';btn.classList.add('active');}
+      if(btn){btn.style.borderColor='#FF6D00';btn.style.background='var(--orange)';btn.style.color='#fff';btn.classList.add('active');}
     }
   });
   donateUpdateUI();
 }
 function donateSetQty(n,btn){
   dQty=n;
-  document.querySelectorAll('.dqs').forEach(b=>{b.style.borderColor='rgba(255,255,255,.08)';b.style.background='rgba(255,255,255,.04)';b.style.color='rgba(255,255,255,.5)';b.classList.remove('active');});
-  btn.style.borderColor='#FF6D00';btn.style.background='rgba(255,109,0,.1)';btn.style.color='#FF6D00';btn.classList.add('active');
+  document.querySelectorAll('.dqs').forEach(b=>{b.style.borderColor='rgba(255,255,255,.2)';b.style.background='rgba(255,255,255,.12)';b.style.color='#fff';b.classList.remove('active');});
+  btn.style.borderColor='#FF6D00';btn.style.background='var(--orange)';btn.style.color='#fff';btn.classList.add('active');
   donateUpdateUI();
 }
 let commsOptIn = false;
@@ -1036,29 +996,6 @@ function toggleComms(){
   icon.style.opacity = commsOptIn ? '1' : '0';
 }
 function validateDonate(e){
-  const firstEl = document.getElementById('donorFirst');
-  const lastEl  = document.getElementById('donorLast');
-  const phoneEl = document.getElementById('donorPhone');
-  const emailEl = document.getElementById('donorEmail');
-  const errEl   = document.getElementById('donorError');
-  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  let valid = true;
-
-  [firstEl, lastEl, phoneEl, emailEl].forEach(el => {
-    if(el) el.style.borderColor = 'rgba(255,255,255,.08)';
-  });
-
-  if(!firstEl || !firstEl.value.trim()){ if(firstEl) firstEl.style.borderColor='#ff4444'; valid=false; }
-  if(!lastEl  || !lastEl.value.trim()) { if(lastEl)  lastEl.style.borderColor='#ff4444';  valid=false; }
-  if(!phoneEl || !phoneEl.value.trim()){ if(phoneEl) phoneEl.style.borderColor='#ff4444'; valid=false; }
-  if(!emailEl || !emailRe.test(emailEl.value.trim())){ if(emailEl) emailEl.style.borderColor='#ff4444'; valid=false; }
-
-  if(!valid){
-    if(errEl){ errEl.textContent='Please complete all highlighted fields.'; errEl.style.display='block'; }
-    if(e) e.preventDefault();
-    return false;
-  }
-  if(errEl) errEl.style.display='none';
   return true;
 }
 donateUpdateUI();
