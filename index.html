@@ -445,7 +445,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
   </div>
   <button class="nav-cta" onclick="smoothScrollTo('#donate')">
     <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-    Secure your Qurbani
+    Book your Qurbani
   </button>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -492,7 +492,7 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
       <div class="hero-actions" style="animation:heroFadeUp .8s ease 1.45s both">
         <button class="btn-hero" onclick="smoothScrollTo('#donate')">
           <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          Give your Qurbani
+          Secure your Qurbani
         </button>
         <a class="btn-ghost-hero" href="#gallery">See past Qurbanis →</a>
         <a class="btn-ghost-hero" href="#history">History of Muslims in Zimbabwe →</a>
@@ -539,8 +539,8 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
       <!-- Donate button — full width on all screens -->
       <button onclick="hdwGoToDonate()" style="width:100%;background:var(--orange);color:#fff;border:none;padding:.85rem 1rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;gap:.5rem;border-radius:10px;transition:all .2s;box-shadow:0 4px 16px rgba(255,109,0,.35)" onmouseover="this.style.background='#cc5500';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--orange)';this.style.transform='translateY(0)'">
         <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-        Give your Qurbani
-        <span style="font-size:.65rem;font-weight:400;opacity:.8;margin-left:.25rem">· Stripe secured</span>
+        Book your Qurbani
+        <span style="font-size:.65rem;font-weight:400;opacity:.8;margin-left:.25rem">· Bank transfer</span>
       </button>
 
     </div>
@@ -739,119 +739,96 @@ footer{background:var(--dark);padding:4rem 2.5rem 2rem}
 
       </div>
 
-      <!-- RIGHT: DONATION FORM -->
+            <!-- RIGHT: BANK DETAILS (Stripe integration coming soon) -->
       <div class="reveal-right donate-right" style="background:rgba(8,20,36,.82);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:2.25rem 2rem;box-shadow:0 28px 72px rgba(0,0,0,.55)">
 
-        <!-- FORM HEADER -->
+        <!-- HEADER -->
         <div style="margin-bottom:1.75rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.07)">
-          <div style="font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.3rem">Give your Qurbani</div>
-          <div style="font-size:.7rem;color:rgba(255,255,255,.28);line-height:1.5">Secure payment via Stripe · Instant email confirmation · Receipt sent immediately</div>
+          <div style="font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.3rem">Book your Qurbani</div>
+          <div style="font-size:.7rem;color:rgba(255,255,255,.45);line-height:1.6">Transfer payment directly · Contact Farai to confirm your booking</div>
         </div>
 
-        <!-- STEP 1: HOW MANY -->
-        <div style="margin-bottom:1.6rem">
-          <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1rem">
-            <div style="width:20px;height:20px;background:#FF6D00;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:.6rem;font-weight:800;color:#fff">1</span></div>
-            <span style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)">How many goats?</span>
-          </div>
-
-          <!-- Price pill -->
-          <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.18);border-radius:9px;padding:.65rem 1rem;margin-bottom:.85rem">
-            <span style="font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.5)">Fixed price per goat</span>
-            <span style="font-size:1.25rem;font-weight:900;color:#e8c96a">£85</span>
-          </div>
-
-          <!-- Qty row: stepper + live total -->
-          <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.65rem">
-            <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,.1);border-radius:11px;overflow:hidden;background:rgba(255,255,255,.04);flex:1">
-              <button onclick="donateChangeQty(-1)" style="width:50px;height:50px;background:none;border:none;color:rgba(255,255,255,.5);font-size:1.35rem;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s;display:flex;align-items:center;justify-content:center;flex-shrink:0" onmouseover="this.style.background='rgba(255,109,0,.12)';this.style.color='#FF6D00'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,.5)'">−</button>
-              <div style="width:1px;background:rgba(255,255,255,.07);height:50px;flex-shrink:0"></div>
-              <div id="dqtyDisplay" style="flex:1;text-align:center;font-size:1.45rem;font-weight:900;color:#fff;line-height:50px;user-select:none;min-width:48px">1</div>
-              <div style="width:1px;background:rgba(255,255,255,.07);height:50px;flex-shrink:0"></div>
-              <button onclick="donateChangeQty(1)" style="width:50px;height:50px;background:none;border:none;color:rgba(255,255,255,.5);font-size:1.35rem;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s;display:flex;align-items:center;justify-content:center;flex-shrink:0" onmouseover="this.style.background='rgba(255,109,0,.12)';this.style.color='#FF6D00'" onmouseout="this.style.background='none';this.style.color='rgba(255,255,255,.5)'">+</button>
-            </div>
-            <!-- Live total -->
-            <div style="background:rgba(255,109,0,.1);border:1.5px solid rgba(255,109,0,.22);border-radius:11px;padding:.55rem 1rem;text-align:center;flex-shrink:0;min-width:86px">
-              <div style="font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,109,0,.55);margin-bottom:.15rem">Total</div>
-              <div style="font-size:1.15rem;font-weight:900;color:#FF6D00" id="dbdTotal">£85</div>
-            </div>
-          </div>
-
-          <!-- Quick-select pills -->
-          <div style="display:flex;gap:.35rem">
-            <button class="dqs active" id="dqs1" onclick="donateSetQty(1,this)" style="flex:1;background:rgba(255,109,0,.1);border:1.5px solid #FF6D00;color:#FF6D00;font-size:.68rem;font-weight:600;padding:.4rem .2rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s">1</button>
-            <button class="dqs" id="dqs3" onclick="donateSetQty(3,this)" style="flex:1;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);color:rgba(255,255,255,.4);font-size:.68rem;font-weight:600;padding:.4rem .2rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s">3</button>
-            <button class="dqs" id="dqs5" onclick="donateSetQty(5,this)" style="flex:1;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);color:rgba(255,255,255,.4);font-size:.68rem;font-weight:600;padding:.4rem .2rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s">5</button>
-            <button class="dqs" id="dqs7" onclick="donateSetQty(7,this)" style="flex:1;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);color:rgba(255,255,255,.4);font-size:.68rem;font-weight:600;padding:.4rem .2rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s">7</button>
-            <button class="dqs" id="dqs10" onclick="donateSetQty(10,this)" style="flex:1;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);color:rgba(255,255,255,.4);font-size:.68rem;font-weight:600;padding:.4rem .2rem;border-radius:7px;cursor:pointer;font-family:'Onest',sans-serif;transition:all .18s">10</button>
-          </div>
+        <!-- PRICE PILL -->
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.18);border-radius:9px;padding:.75rem 1.1rem;margin-bottom:1.5rem">
+          <span style="font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,168,76,.6)">Fixed price per goat</span>
+          <span style="font-size:1.4rem;font-weight:900;color:#e8c96a">£85</span>
         </div>
 
-        <div style="height:1px;background:rgba(255,255,255,.06);margin:1.5rem 0"></div>
-
-        <!-- STEP 2: YOUR DETAILS -->
+        <!-- BANK DETAILS -->
         <div style="margin-bottom:1.5rem">
-          <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1rem">
-            <div style="width:20px;height:20px;background:#FF6D00;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:.6rem;font-weight:800;color:#fff">2</span></div>
-            <span style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)">Your details</span>
+          <div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#FF6D00;margin-bottom:1rem;display:flex;align-items:center;gap:.6rem">
+            How to Book — Bank Transfer
+            <span style="flex:1;height:1px;background:rgba(255,255,255,.07);display:block"></span>
           </div>
+          <div style="font-size:1rem;font-weight:800;color:#FF6D00;margin-bottom:.85rem">Firdous Foundation</div>
+          <div style="display:flex;flex-direction:column;gap:.5rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.06)">
+              <span style="font-size:.75rem;color:rgba(255,255,255,.45);font-weight:400">Charity No.</span>
+              <span style="font-size:.85rem;font-weight:700;color:#fff;letter-spacing:.04em">1175024</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.06)">
+              <span style="font-size:.75rem;color:rgba(255,255,255,.45);font-weight:400">Bank</span>
+              <span style="font-size:.85rem;font-weight:700;color:#fff">Natwest Bank</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.06)">
+              <span style="font-size:.75rem;color:rgba(255,255,255,.45);font-weight:400">Account</span>
+              <span style="font-size:.85rem;font-weight:700;color:#fff;letter-spacing:.04em">72389796</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.06)">
+              <span style="font-size:.75rem;color:rgba(255,255,255,.45);font-weight:400">Sort Code</span>
+              <span style="font-size:.85rem;font-weight:700;color:#fff;letter-spacing:.04em">01-10-01</span>
+            </div>
+          </div>
+        </div>
 
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-bottom:.55rem">
-            <div>
-              <label style="font-size:.56rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);display:block;margin-bottom:.28rem">First name *</label>
-              <input id="donorFirst" type="text" placeholder="Ahmed" autocomplete="given-name" style="width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);color:#fff;padding:.68rem .85rem;font-size:.83rem;font-family:'Onest',sans-serif;border-radius:9px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#FF6D00'" onblur="this.style.borderColor='rgba(255,255,255,.08)'" />
+        <div style="height:1px;background:rgba(255,255,255,.07);margin-bottom:1.5rem"></div>
+
+        <!-- CONTACT -->
+        <div style="margin-bottom:1.5rem">
+          <div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#FF6D00;margin-bottom:1rem;display:flex;align-items:center;gap:.6rem">
+            Book / Enquire
+            <span style="flex:1;height:1px;background:rgba(255,255,255,.07);display:block"></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;padding:.85rem 1rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;margin-bottom:.65rem">
+            <div style="width:38px;height:38px;background:rgba(255,109,0,.12);border:1px solid rgba(255,109,0,.25);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center">
+              <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#FF6D00"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
             </div>
             <div>
-              <label style="font-size:.56rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);display:block;margin-bottom:.28rem">Surname *</label>
-              <input id="donorLast" type="text" placeholder="Khan" autocomplete="family-name" style="width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);color:#fff;padding:.68rem .85rem;font-size:.83rem;font-family:'Onest',sans-serif;border-radius:9px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#FF6D00'" onblur="this.style.borderColor='rgba(255,255,255,.08)'" />
+              <div style="font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.2rem">Contact — Farai</div>
+              <div style="font-size:1.1rem;font-weight:800;color:#fff">+44 7343 073711</div>
+              <div style="font-size:.68rem;color:rgba(255,255,255,.35);margin-top:.15rem">WhatsApp &amp; calls welcome</div>
             </div>
           </div>
-          <div style="margin-bottom:.55rem">
-            <label style="font-size:.56rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);display:block;margin-bottom:.28rem">Email address *</label>
-            <input id="donorEmail" type="email" placeholder="you@example.com" autocomplete="email" style="width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);color:#fff;padding:.68rem .85rem;font-size:.83rem;font-family:'Onest',sans-serif;border-radius:9px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#FF6D00'" onblur="this.style.borderColor='rgba(255,255,255,.08)'" />
-          </div>
-          <div style="margin-bottom:.55rem">
-            <label style="font-size:.56rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);display:block;margin-bottom:.28rem">Phone number *</label>
-            <input id="donorPhone" type="tel" placeholder="+44 7700 000000" autocomplete="tel" style="width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);color:#fff;padding:.68rem .85rem;font-size:.83rem;font-family:'Onest',sans-serif;border-radius:9px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#FF6D00'" onblur="this.style.borderColor='rgba(255,255,255,.08)'" />
-          </div>
-          <div>
-            <label style="font-size:.56rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);display:block;margin-bottom:.28rem">Special instructions <span style="font-weight:300;text-transform:none;letter-spacing:0;color:rgba(255,255,255,.18)">(optional)</span></label>
-            <textarea id="donorInstructions" placeholder="Any specific requests for your Qurbani..." rows="2" style="width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);color:#fff;padding:.68rem .85rem;font-size:.83rem;font-family:'Onest',sans-serif;border-radius:9px;outline:none;transition:border-color .2s;resize:none" onfocus="this.style.borderColor='#FF6D00'" onblur="this.style.borderColor='rgba(255,255,255,.08)'"></textarea>
-          </div>
         </div>
 
-        <div style="height:1px;background:rgba(255,255,255,.06);margin:1.5rem 0"></div>
+        <div style="height:1px;background:rgba(255,255,255,.07);margin-bottom:1.5rem"></div>
 
-        <!-- STEP 3: ON BEHALF OF -->
+        <!-- WEBSITE -->
         <div style="margin-bottom:1.5rem">
-          <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem">
-            <div style="width:20px;height:20px;background:#FF6D00;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:.6rem;font-weight:800;color:#fff">3</span></div>
-            <span style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)">On behalf of <span style="font-weight:300;text-transform:none;letter-spacing:0;color:rgba(255,255,255,.22)">(optional)</span></span>
+          <div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#FF6D00;margin-bottom:.85rem;display:flex;align-items:center;gap:.6rem">
+            Website
+            <span style="flex:1;height:1px;background:rgba(255,255,255,.07);display:block"></span>
           </div>
-          <div id="namesContainer" style="display:flex;flex-direction:column;gap:.45rem"></div>
+          <a href="http://forgottenmuslims.co.zw" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:.7rem .85rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(255,109,0,.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,.06)'">
+            <span style="font-size:.88rem;font-weight:600;color:#fff">forgottenmuslims.co.zw</span>
+            <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:rgba(255,255,255,.35);flex-shrink:0"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </a>
         </div>
 
-        <div style="height:1px;background:rgba(255,255,255,.06);margin:1.5rem 0"></div>
-
-        <!-- COMMS OPT-IN -->
-        <div onclick="toggleComms()" style="display:flex;align-items:flex-start;gap:.7rem;padding:.8rem 1rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;cursor:pointer;transition:border-color .2s;margin-bottom:1.25rem" onmouseover="this.style.borderColor='rgba(255,255,255,.14)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)'">
-          <div id="commsCheck" style="width:17px;height:17px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .2s">
-            <svg id="commsIcon" viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fff;opacity:0;transition:opacity .2s"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          </div>
-          <div style="font-size:.76rem;color:rgba(255,255,255,.4);line-height:1.55;font-weight:300">I'm happy to receive updates, photos, and distribution evidence for my Qurbani.</div>
+        <!-- EVIDENCE NOTE -->
+        <div style="display:flex;align-items:center;gap:.65rem;padding:.75rem 1rem;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.15);border-radius:8px;margin-bottom:1.5rem">
+          <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#C9A84C;flex-shrink:0"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span style="font-size:.72rem;color:#C9A84C;font-weight:600">Photo evidence of sacrifice provided to every donor</span>
         </div>
 
-        <!-- ERROR -->
-        <div id="donorError" style="display:none;background:rgba(255,59,48,.1);border:1px solid rgba(255,59,48,.3);color:#ff7070;font-size:.74rem;padding:.62rem .9rem;border-radius:8px;margin-bottom:.85rem;text-align:center"></div>
-
-        <!-- PAY BUTTON -->
-        <a id="stripeBtn" href="https://buy.stripe.com/7sY4gyfJQ1DF3yZelsafS00" onclick="return validateDonate(event)" style="width:100%;background:#FF6D00;color:#fff;border:none;padding:1.1rem;font-size:.93rem;font-weight:700;border-radius:12px;cursor:pointer;font-family:'Onest',sans-serif;display:flex;align-items:center;justify-content:center;gap:.55rem;box-shadow:0 6px 28px rgba(255,109,0,.38);transition:all .25s;text-decoration:none;margin-bottom:.85rem" onmouseover="this.style.background='#cc5500';this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 34px rgba(255,109,0,.48)'" onmouseout="this.style.background='#FF6D00';this.style.transform='translateY(0)';this.style.boxShadow='0 6px 28px rgba(255,109,0,.38)'">
-          <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff;flex-shrink:0"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          Secure your Qurbani — <span id="dbtnTotal">£85</span>
+        <!-- CTA BUTTON -->
+        <a href="https://wa.me/447343073711?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20book%20a%20Qurbani%20for%20Eid%20ul-Adha%202026" target="_blank" style="width:100%;background:#FF6D00;color:#fff;border:none;padding:1.1rem;font-size:.93rem;font-weight:700;border-radius:12px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:.55rem;box-shadow:0 6px 28px rgba(255,109,0,.38);transition:all .25s;text-decoration:none;margin-bottom:.85rem" onmouseover="this.style.background='#cc5500';this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 34px rgba(255,109,0,.48)'" onmouseout="this.style.background='#FF6D00';this.style.transform='translateY(0)';this.style.boxShadow='0 6px 28px rgba(255,109,0,.38)'">
+          <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff;flex-shrink:0"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          Book via WhatsApp — Farai
         </a>
         <div style="display:flex;align-items:center;justify-content:center;gap:.55rem;font-size:.6rem;color:rgba(255,255,255,.18)">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:rgba(255,255,255,.22)"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-          Secured by Stripe · SSL encrypted · Instant receipt
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:rgba(255,255,255,.22)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Bank transfer · 100% direct to community · No admin fees
         </div>
 
       </div><!-- end donate-right -->
@@ -1078,195 +1055,12 @@ function hdwChangeQty(d){
   document.getElementById('hdwTotal').textContent = '£' + (hdwQty * 85);
 }
 function hdwGoToDonate(){
-  dQty = hdwQty;
-  donateUpdateUI();
   const el = document.querySelector('#donate');
   if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
-// DONATE SECTION WIDGET
-const D_UNIT = 85;
-let dQty = 1;
+// Stripe form temporarily replaced with bank details — JS restored when ready
 
-function buildNameFields(){
-  const container = document.getElementById('namesContainer');
-  if(!container) return;
-  const existing = container.querySelectorAll('input');
-  const vals = Array.from(existing).map(i => i.value);
-  container.innerHTML = '';
-  for(let i = 0; i < dQty; i++){
-    const wrap = document.createElement('div');
-    wrap.style.cssText = 'display:flex;align-items:center;gap:.6rem;animation:fadeNameIn .25s ease both';
-    wrap.style.animationDelay = (i * 0.05) + 's';
-    const num = document.createElement('div');
-    num.style.cssText = 'width:20px;height:20px;background:rgba(255,109,0,.15);border:1px solid rgba(255,109,0,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;color:#FF6D00;flex-shrink:0';
-    num.textContent = i + 1;
-    const inp = document.createElement('input');
-    inp.type = 'text';
-    inp.placeholder = 'Name for goat ' + (i + 1);
-    inp.value = vals[i] || '';
-    inp.style.cssText = 'flex:1;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);color:#fff;padding:.62rem .85rem;font-size:.81rem;font-family:\'Onest\',sans-serif;border-radius:8px;outline:none;transition:border-color .2s;width:100%';
-    inp.addEventListener('focus', () => inp.style.borderColor = '#FF6D00');
-    inp.addEventListener('blur',  () => inp.style.borderColor = 'rgba(255,255,255,.08)');
-    wrap.appendChild(num);
-    wrap.appendChild(inp);
-    container.appendChild(wrap);
-  }
-}
-
-function donateUpdateUI(){
-  const total = dQty * D_UNIT;
-  document.getElementById('dqtyDisplay').textContent = dQty;
-  const totalEl = document.getElementById('dbdTotal');
-  if(totalEl) totalEl.textContent = '£' + total.toFixed(0);
-  document.getElementById('dbtnTotal').textContent = '£' + total.toFixed(0);
-  buildNameFields();
-}
-function donateChangeQty(delta){
-  dQty = Math.max(1, Math.min(100, dQty + delta));
-  document.querySelectorAll('.dqs').forEach(b => {
-    b.style.borderColor='rgba(255,255,255,.08)';b.style.background='rgba(255,255,255,.04)';b.style.color='rgba(255,255,255,.4)';
-    b.classList.remove('active');
-  });
-  ['1','3','5','7','10'].forEach(n => {
-    if(parseInt(n)===dQty){
-      const btn=document.getElementById('dqs'+n);
-      if(btn){btn.style.borderColor='#FF6D00';btn.style.background='rgba(255,109,0,.1)';btn.style.color='#FF6D00';btn.classList.add('active');}
-    }
-  });
-  donateUpdateUI();
-}
-function donateSetQty(n,btn){
-  dQty=n;
-  document.querySelectorAll('.dqs').forEach(b=>{b.style.borderColor='rgba(255,255,255,.08)';b.style.background='rgba(255,255,255,.04)';b.style.color='rgba(255,255,255,.4)';b.classList.remove('active');});
-  btn.style.borderColor='#FF6D00';btn.style.background='rgba(255,109,0,.1)';btn.style.color='#FF6D00';btn.classList.add('active');
-  donateUpdateUI();
-}
-let commsOptIn = false;
-function toggleComms(){
-  commsOptIn = !commsOptIn;
-  const box = document.getElementById('commsCheck');
-  const icon = document.getElementById('commsIcon');
-  box.style.background = commsOptIn ? '#FF6D00' : 'transparent';
-  box.style.borderColor = commsOptIn ? '#FF6D00' : 'rgba(255,255,255,.2)';
-  icon.style.opacity = commsOptIn ? '1' : '0';
-}
-// ── DONATE FORM SUBMISSION ────────────────────────────────────────────────────
-// This function runs when the donor clicks "Secure your Qurbani".
-//
-// Flow:
-//   1. Validate all required fields — stop if anything is missing
-//   2. Collect all form data (name, email, phone, qty, on-behalf-of etc.)
-//   3. POST to our API to save a pending row in the database
-//   4. Whether the API call succeeds or fails, redirect to Stripe
-//      — we NEVER block a donation because of an API error
-//   5. While the API call is in flight, show a loading state on the button
-//
-// The API endpoint is POST https://api.forgottenmuslims.co.zw/donations/pending
-// When Stripe confirms payment, the webhook matches this pending row
-// and marks it as paid.
-
-const PENDING_API = 'https://api.forgottenmuslims.co.zw/donations/pending';
-const STRIPE_URL  = 'https://buy.stripe.com/test_7sY4gyfJQ1DF3yZelsafS00';
-
-function validateDonate(e) {
-  // This is called via onclick="return validateDonate(event)" on the <a> tag.
-  // We prevent the default navigation immediately and handle the redirect
-  // ourselves after the async API call.
-  if(e) e.preventDefault();
-
-  const firstEl = document.getElementById('donorFirst');
-  const lastEl  = document.getElementById('donorLast');
-  const phoneEl = document.getElementById('donorPhone');
-  const emailEl = document.getElementById('donorEmail');
-  const errEl   = document.getElementById('donorError');
-  const btn     = document.getElementById('stripeBtn');
-  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  let valid = true;
-
-  // Reset field borders before re-validating
-  [firstEl, lastEl, phoneEl, emailEl].forEach(el => {
-    if(el) el.style.borderColor = 'rgba(255,255,255,.08)';
-  });
-
-  // Highlight any missing or invalid fields
-  if(!firstEl || !firstEl.value.trim()){ if(firstEl) firstEl.style.borderColor='#ff4444'; valid=false; }
-  if(!lastEl  || !lastEl.value.trim()) { if(lastEl)  lastEl.style.borderColor='#ff4444';  valid=false; }
-  if(!phoneEl || !phoneEl.value.trim()){ if(phoneEl) phoneEl.style.borderColor='#ff4444'; valid=false; }
-  if(!emailEl || !emailRe.test(emailEl.value.trim())){ if(emailEl) emailEl.style.borderColor='#ff4444'; valid=false; }
-
-  if(!valid){
-    if(errEl){ errEl.textContent='Please complete all required fields.'; errEl.style.display='block'; }
-    return false;
-  }
-
-  if(errEl) errEl.style.display='none';
-
-  // ── Collect on-behalf-of names from the dynamic name fields ──────────────
-  // namesContainer holds one input per goat, generated by buildNameFields().
-  // We join them into a comma-separated string for the API.
-  const nameInputs = document.querySelectorAll('#namesContainer input');
-  const onBehalfOf = Array.from(nameInputs)
-    .map(i => i.value.trim())
-    .filter(v => v.length > 0)
-    .join(', ');
-
-  // ── Build the payload for POST /donations/pending ────────────────────────
-  const payload = {
-    donor_first:          firstEl.value.trim(),
-    donor_last:           lastEl.value.trim(),
-    donor_email:          emailEl.value.trim(),
-    donor_phone:          phoneEl.value.trim(),
-    qty:                  dQty,
-    on_behalf_of:         onBehalfOf || null,
-    special_instructions: (document.getElementById('donorInstructions')?.value.trim()) || null,
-    comms_opt_in:         commsOptIn,
-  };
-
-  // ── Show loading state on the button ─────────────────────────────────────
-  if(btn){
-    btn.style.opacity    = '0.7';
-    btn.style.pointerEvents = 'none';
-    const span = btn.querySelector('span');
-    if(span) span.textContent = 'Saving...';
-  }
-
-  // ── POST to API then redirect to Stripe ──────────────────────────────────
-  // We use a 6-second timeout — if the API takes longer than that we
-  // redirect anyway so the donor is never stuck waiting.
-  const apiTimeout = new Promise((_, reject) =>
-    setTimeout(() => reject(new Error('timeout')), 6000)
-  );
-
-  Promise.race([
-    fetch(PENDING_API, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(payload),
-    }),
-    apiTimeout,
-  ])
-  .then(res => {
-    if(!res.ok) throw new Error(`API returned ${res.status}`);
-    return res.json();
-  })
-  .then(data => {
-    console.log('[Qurbani] Pending saved:', data);
-  })
-  .catch(err => {
-    // API failed or timed out — log the error but still redirect to Stripe.
-    // A failed API save is recoverable (Stripe webhook will still fire).
-    // A blocked donation is not recoverable.
-    console.warn('[Qurbani] Pending save failed (continuing to Stripe):', err);
-  })
-  .finally(() => {
-    // Always redirect to Stripe regardless of API outcome
-    window.location.href = STRIPE_URL;
-  });
-
-  return false;
-}
-donateUpdateUI();
 
 // PRELOADER
 window.addEventListener('load',()=>{
