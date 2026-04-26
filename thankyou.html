@@ -22,8 +22,10 @@ nav{background:rgba(2,13,25,.95);backdrop-filter:blur(20px);border-bottom:1px so
 .nav-cta{background:var(--orange);color:#fff;border:none;padding:.6rem 1.5rem;font-size:.8rem;font-weight:600;border-radius:8px;cursor:pointer;font-family:'Onest',sans-serif;text-decoration:none;display:flex;align-items:center;gap:.45rem;transition:all .2s;box-shadow:0 4px 14px rgba(255,109,0,.3)}
 .nav-cta:hover{background:var(--orange-dark);transform:translateY(-1px)}
 .hero-ty{min-height:100vh;background:var(--dark);position:relative;overflow:hidden;display:flex;align-items:center;padding:7rem 2.5rem 4rem}
-.hero-ty-bg{position:absolute;inset:0;background-image:url('Web_image.jpg');background-size:cover;background-position:center 30%;z-index:0}
-.hero-ty-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,13,25,.97) 0%,rgba(2,13,25,.88) 50%,rgba(2,13,25,.82) 100%);z-index:1}
+.hero-ty-bg-desktop{position:absolute;inset:0;background-image:url('Background images/bg-desktop.jpg');background-size:cover;background-position:center 30%;z-index:0}
+.hero-ty-bg-mobile{position:absolute;inset:0;background-image:url('Background images/bg-mobile.jpg');background-size:cover;background-position:center 30%;z-index:0;display:none}
+@media(max-width:768px){.hero-ty-bg-desktop{display:none!important}.hero-ty-bg-mobile{display:block!important}}
+.hero-ty-overlay{position:absolute;inset:0;background:rgba(2,13,25,.02);z-index:1}
 .hero-ty-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:1}
 .hero-ty-inner{max-width:800px;margin:0 auto;position:relative;z-index:2;text-align:center}
 .check-circle{width:80px;height:80px;background:rgba(255,109,0,.1);border:2px solid rgba(255,109,0,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;animation:checkPop .6s cubic-bezier(.34,1.56,.64,1) .3s both}
@@ -99,7 +101,8 @@ footer{background:var(--dark2);padding:2.5rem;border-top:1px solid rgba(255,255,
 </nav>
 
 <div class="hero-ty">
-  <div class="hero-ty-bg"></div>
+  <div class="hero-ty-bg-desktop"></div>
+  <div class="hero-ty-bg-mobile"></div>
   <div class="hero-ty-overlay"></div>
   <div class="hero-ty-grid"></div>
   <div class="hero-ty-inner">
@@ -110,24 +113,32 @@ footer{background:var(--dark2);padding:2.5rem;border-top:1px solid rgba(255,255,
     </div>
     <h1 class="ty-h1">JazakAllah Khayran.<br><span>Your Qurbani is secured.</span></h1>
     <p class="ty-sub">BarakAllahu feekum. Your sacrifice has been received and will reach the families of Gilston Farm, Zimbabwe for Eid ul-Adha 2026. May Allah accept it from you and your loved ones.</p>
-    <div class="ty-card">
-      <div class="ty-card-row">
-        <div class="ty-card-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-        <div><span class="ty-card-label">What you have given</span><span class="ty-card-value">Your Qurbani &mdash; Gilston Farm, Zimbabwe</span></div>
+      <div class="ty-card">
+        <div class="ty-card-row">
+          <div class="ty-card-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+          <div><span class="ty-card-label">What you have given</span><span class="ty-card-value" id="tyGiven">Your Qurbani &mdash; Gilston Farm, Zimbabwe</span></div>
+        </div>
+        <div class="ty-card-row" id="tyAmountRow" style="display:none">
+          <div class="ty-card-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+          <div><span class="ty-card-label">Amount paid</span><span class="ty-card-value" id="tyAmount"></span></div>
+        </div>
+        <div class="ty-card-row" id="tyNamesRow" style="display:none">
+          <div class="ty-card-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <div><span class="ty-card-label">On behalf of</span><span class="ty-card-value" id="tyNames"></span></div>
+        </div>
+        <div class="ty-card-row">
+          <div class="ty-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+          <div><span class="ty-card-label">Where it goes</span><span class="ty-card-value">Gilston Farm community &middot; Rural Zimbabwe</span></div>
+        </div>
+        <div class="ty-card-row">
+          <div class="ty-card-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+          <div><span class="ty-card-label">What to expect</span><span class="ty-card-value">Confirmation email + photos after distribution</span></div>
+        </div>
+        <div class="ty-card-row">
+          <div class="ty-card-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+          <div><span class="ty-card-label">Sourced from</span><span class="ty-card-value">Local Zimbabwean farmers &middot; Beatrice, Zimbabwe</span></div>
+        </div>
       </div>
-      <div class="ty-card-row">
-        <div class="ty-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-        <div><span class="ty-card-label">Where it goes</span><span class="ty-card-value">Gilston Farm community &middot; Rural Zimbabwe</span></div>
-      </div>
-      <div class="ty-card-row">
-        <div class="ty-card-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-        <div><span class="ty-card-label">What to expect</span><span class="ty-card-value">Confirmation email + photos after distribution</span></div>
-      </div>
-      <div class="ty-card-row">
-        <div class="ty-card-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
-        <div><span class="ty-card-label">Sourced from</span><span class="ty-card-value">Local Zimbabwean farmers &middot; Beatrice, Zimbabwe</span></div>
-      </div>
-    </div>
     <div class="ty-actions">
       <a href="#nextsteps" class="btn-ty-primary" onclick="document.getElementById('nextsteps').scrollIntoView({behavior:'smooth'});return false;">
         <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
@@ -241,8 +252,69 @@ footer{background:var(--dark2);padding:2.5rem;border-top:1px solid rgba(255,255,
 </footer>
 
 <script>
-const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -60px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// ── SCROLL REVEAL ─────────────────────────────────────────────────────────────
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, {threshold:.12, rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ── SESSION VERIFICATION ──────────────────────────────────────────────────────
+// Stripe appends ?session_id=cs_xxx to the success URL.
+// We call our API to verify the session was genuinely paid and
+// populate the confirmation card with real donor details.
+(function verifySession(){
+  const params     = new URLSearchParams(window.location.search);
+  const sessionId  = params.get('session_id');
+
+  // If no session_id in URL, this page was accessed directly — that's fine,
+  // just show the generic confirmation without personalisation.
+  if(!sessionId) return;
+
+  // Clean the session_id from the URL without reloading
+  history.replaceState({}, '', window.location.pathname);
+
+  // Call the API to verify and fetch donor details
+  fetch('https://api.forgottenmuslims.co.zw/verify-session?session_id=' + encodeURIComponent(sessionId))
+    .then(res => { if(!res.ok) throw new Error('not found'); return res.json(); })
+    .then(data => {
+      if(!data || !data.paid) return; // not confirmed — show generic page
+
+      // Populate the confirmation card with real data
+      const qty   = data.qty || 1;
+      const label = qty === 1 ? '1 goat' : qty + ' goats';
+      const name  = [data.donor_first, data.donor_last].filter(Boolean).join(' ');
+      const amt   = data.amount_pence ? '£' + (data.amount_pence / 100).toFixed(0) : '£' + (qty * 85);
+
+      // What you have given
+      const givenEl = document.getElementById('tyGiven');
+      if(givenEl) givenEl.textContent = label + ' — Gilston Farm, Zimbabwe';
+
+      // Amount
+      const amtEl = document.getElementById('tyAmount');
+      if(amtEl){ amtEl.closest('.ty-card-row').style.display='flex'; amtEl.textContent = amt; }
+
+      // On behalf of — use structured names list if available
+      const namesEl = document.getElementById('tyNames');
+      if(namesEl){
+        const namesList = data.on_behalf_of_names && data.on_behalf_of_names.length > 0
+          ? data.on_behalf_of_names.map(n => n.name).join(', ')
+          : data.on_behalf_of;
+        if(namesList){
+          namesEl.closest('.ty-card-row').style.display = 'flex';
+          namesEl.textContent = namesList;
+        }
+      }
+
+      // Personalise the heading if we have a name
+      if(name){
+        const subEl = document.querySelector('.ty-sub');
+        if(subEl) subEl.innerHTML = 'BarakAllahu feekum, <strong style="color:#fff">' + name + '</strong>. Your sacrifice has been received and will reach the families of Gilston Farm, Zimbabwe for Eid ul-Adha 2026. May Allah accept it from you and your loved ones.';
+      }
+    })
+    .catch(() => {
+      // Verification failed silently — page still shows generic confirmation
+    });
+})();
 </script>
 </body>
 </html>
